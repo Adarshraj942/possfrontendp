@@ -41,7 +41,7 @@ const ProductPage = () => {
   
     const [products,setProduct]=useState([])
     const Productpage = () => {
-        history.push(`/ProductPage/${products._id}`)
+        navigate(`/ProductPage/${products._id}`)
     } 
 
     const userData =localStorage.getItem("userId")

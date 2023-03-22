@@ -12,7 +12,7 @@ import footj from '../../assets/footj.png'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getProduct } from '../../Api/ProductRequest'
 import { createOrder } from '../../Api/OrderRequest'
-
+import swal from "sweetalert"
 
 const PageOne = () => {
   const navigate = useNavigate();
@@ -86,7 +86,7 @@ const PageOne = () => {
      }
     }else{
      swal("Login first")
-     history.push('/signin')
+     navigate('/signin')
     }
     
       
