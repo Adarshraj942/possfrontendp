@@ -1,0 +1,12 @@
+#fgmi{
+    display: none;
+}
+
+
+
+@media  screen and (max-width:780px) {
+#fgmi{
+    display: block;
+}
+
+}

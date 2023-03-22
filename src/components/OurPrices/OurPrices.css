@@ -1,0 +1,116 @@
+.booknowbtn {
+    width: 150px;
+    background-color: #F3CA6D;
+    border-color: transparent;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    align-items: center;
+}
+
+.subtextheader {
+    padding-bottom: 40px;
+}
+
+ul li h4 {
+    font-size: 15px;
+    color: 'black';
+    font-weight: 500;
+}
+
+.headerbook h2 {
+    color: black;
+    font-weight: 800;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.pricebook h2 {
+    color: black;
+    font-weight: 800;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.listitems {
+    text-align: left;
+}
+
+.listitems li {
+    padding: 4px;
+    font-size: 15px;
+}
+
+.listitemslast li {
+    padding: 4px;
+    text-align: left;
+}
+#col1{
+    width:200px;
+    padding-top:20px
+}
+.listitemslast {
+    padding: 10px;
+    text-align: left;
+}
+
+#cardPrice {
+    width: 300px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    height: 450px;
+    box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+}
+
+#cardPrice:hover {
+    box-shadow: -103px 30px 100px rgba(0, 0, 0, 0.15);
+    height: 450px;
+    background-color: #E6EBE5;
+}
+
+.Pricesheader h4 {
+    color: rgba(56, 43, 40, 1);
+    font-weight: 700;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#pricerow{
+    display: flex;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+    #pricerow{
+        display: inline;
+        justify-content: center;
+        }
+        .Pricesheader h4 {
+            color: rgba(56, 43, 40, 1);
+            font-weight: 700;
+            text-align: center;
+            font-size: 30px;
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+
+        .subtextheader {
+            padding-bottom: 2px;
+        }
+
+        .subtextheader h2{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        #col1{
+            width:100%;
+            padding-top:10px
+        }
+        
+  }

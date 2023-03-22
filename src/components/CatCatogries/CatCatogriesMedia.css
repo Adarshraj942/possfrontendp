@@ -1,0 +1,15 @@
+
+.Mediacontainer{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  
+
+    .Mediacontainer{
+        display: block;
+    }
+
+ 
+    
+}
