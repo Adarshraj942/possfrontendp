@@ -5,6 +5,7 @@ import './Account.css'
 import MediaFooter from '../../components/Footer/MediaFooter'
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar'
 
+
 const Account = () => {
   return (
     <>

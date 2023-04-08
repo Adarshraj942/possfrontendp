@@ -4,26 +4,30 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import dogfood from '../../assets/dogfood.png'
-import container from '../../assets/container.png'
-import newcat from '../../assets/newcat.png'
-import dogimg from '../../assets/dogimg.png'
+
 import {EffectCoverflow,Pagination,Navigation} from 'swiper'
 import video from '../../assets/video.png'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import './CardCarasouel.css'
 import Typography from '@mui/material/Typography';
 import './CardCarasouel.css'
+import { useNavigate } from 'react-router-dom';
 
 function CardCarasouel() {
+  
+  const navigate = useNavigate();
+  function handleblogpage(event){
+    navigate('/Blogpage');
+  }
+
   return (
     <div style={{backgroundColor:'white'}}>
       <div align='center' className='container-fluid' style={{paddingTop:'20px',paddingBottom:'40px'}} >
-      <div  className='servicesheader'><h4>Our Services</h4> </div>
-        <div align='center' className='servicesheader'><h2>Subtext here--</h2> </div>
+      <div  className='servicesheader'><h4>Read pets daily updates</h4> </div>
+        {/* <div align='center' className='servicesheader'><h2>Subtext here--</h2> </div> */}
         <Swiper
          slidesPerView={1}
          effect={'coverflow'}
@@ -60,7 +64,7 @@ function CardCarasouel() {
             <div>
             <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
               <CardMedia
-                sx={{ height: 270,borderRadius:'20.1355px;'  }}
+                sx={{ height: 250,borderRadius:'20.1355px;'  }}
                 image={video}
 
               />
@@ -75,7 +79,9 @@ function CardCarasouel() {
                 hassle-free Grooming Experience without you even 
                 getting worried about the transportation.
                 </Typography>
+                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button onClick={handleblogpage} >Read more</button></div>
               </CardContent>
+
               
             </Card>
             </div>
@@ -85,7 +91,7 @@ function CardCarasouel() {
             <div>
             <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
               <CardMedia
-                sx={{ height: 270,borderRadius:'20.1355px;' , }}
+                sx={{ height: 250,borderRadius:'20.1355px;' , }}
                 image={video}
 
               />
@@ -100,7 +106,9 @@ function CardCarasouel() {
                 hassle-free Grooming Experience without you even 
                 getting worried about the transportation.
                 </Typography>
+                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button >Read more</button></div>
               </CardContent>
+
               
             </Card>
             </div>
@@ -110,7 +118,7 @@ function CardCarasouel() {
             <div>
             <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
               <CardMedia
-                sx={{ height: 270,borderRadius:'20.1355px;' , }}
+                sx={{ height: 250,borderRadius:'20.1355px;' , }}
                 image={video}
 
               />
@@ -125,6 +133,7 @@ function CardCarasouel() {
                 hassle-free Grooming Experience without you even 
                 getting worried about the transportation.
                 </Typography>
+                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button >Read more</button></div>
               </CardContent>
               
             </Card>

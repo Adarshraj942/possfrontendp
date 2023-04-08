@@ -1,15 +1,14 @@
 import {React,useState} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './Signin.css'
-import facebookicon from '../../assets/facebookicon.png'
-import googleicon from '../../assets/googleicon.png'
+
 import doganimation from '../../assets/doganimation.png'
 import sign from '../../assets/sign.png'
 import { Footer } from '../../components/Footer/Footer'
-import MobileFoot from '../../components/MobileFoot/MobileFoot'
+
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar'
 import MediaFooter from '../../components/Footer/MediaFooter'
-import { useEffect } from "react";
+
 import {  useNavigate } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
 import { signUp } from "../../Api/AuthRequest.js";

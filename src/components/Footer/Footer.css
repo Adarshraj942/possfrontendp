@@ -1,7 +1,7 @@
 .flexcontent{
     justify-content: space-between;
     display: flex;
-   padding: 20px;
+   padding: 10px;
 }
 
 #flexleft{

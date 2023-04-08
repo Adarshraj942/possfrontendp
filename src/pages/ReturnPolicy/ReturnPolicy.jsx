@@ -25,7 +25,7 @@ function ReturnPolicy() {
           </h6>
         
           <li>
-          HomePage>Orders>Cancel Order; and/or
+          HomePage - Orders - Cancel Order; and/or
           </li>
           <li>
            Write to the customer care on info@possindia.in

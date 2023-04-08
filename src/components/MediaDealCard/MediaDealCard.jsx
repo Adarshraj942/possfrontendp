@@ -4,21 +4,24 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import dogfood from '../../assets/dogfood.png'
-import container from '../../assets/container.png'
-import newcat from '../../assets/newcat.png'
-import dogimg from '../../assets/dogimg.png'
+
 import {EffectCoverflow,Pagination,Navigation} from 'swiper'
-import product from '../../assets/product.png'
-import deals from '../../assets/deals.png'
+
+import foodv from '../../assets/foodv.png'
+import grooming from '../../assets/grooming.png'
+import essentials from '../../assets/essentials.png'
+import DogToys from '../../assets/DogToys.png'
+import treak from '../../assets/treak.png'
+import bed from '../../assets/bed.png'
 import './MediaDealCard.css'
 
 function MediaDealCard() {
   return (
     <div className='MediaDEalcard'>
-            <div align='center' className='container'>
+            <div align='center' className='container-fluid'>
        
         <Swiper
+        slidesPerView={1}
          effect={'coverflow'}
          // grabCursor={true}
          // centeredSlides={true}
@@ -27,6 +30,7 @@ function MediaDealCard() {
          // background={'transparent'}
          coverflowEffect={
            {
+            
              rotate: 0,
              stretch: 100,
              depth: 150,
@@ -54,31 +58,28 @@ function MediaDealCard() {
         >
         
           <SwiperSlide sx={{}}>
-          <div id="superdealcard" className='card' >
-        <div className='flex-container20' style={{display:'flex',justifyContent:'space-evenly'}}>
+          <div   >
+        <div className='container' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
-               <h5 style={{paddingTop:'40px'}} >Subtext</h5>
-               <div className='PRoductimg'><img src={product} alt="" /></div>
+               
+               <div className='PRoductimg'><img  src={DogToys} alt="" /></div>
               
               </div>
-              <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
-                <img  src={deals} alt="" />
-               
-              </div>
+             
             </div>
           </div>
             
           </SwiperSlide>
           <SwiperSlide>
-          <div id="superdealcard" className='card' >
-        <div className='flex-container20' style={{display:'flex',justifyContent:'space-evenly'}}>
+          <div   >
+        <div className='container' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
-               <h5 style={{paddingTop:'40px'}} >Subtext</h5>
-               <div className='PRoductimg'><img src={product} alt="" /></div>
+               
+               <div className='PRoductimg'><img src={essentials} alt="" /></div>
               
               </div>
               <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
-                <img  src={deals} alt="" />
+                
                
               </div>
             </div>
@@ -86,15 +87,15 @@ function MediaDealCard() {
            
           </SwiperSlide>
           <SwiperSlide>
-          <div id="superdealcard" className='card' >
-        <div className='flex-container20' style={{display:'flex',justifyContent:'space-evenly'}}>
+          <div   >
+        <div className='container' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
-               <h5 style={{paddingTop:'40px'}} >Subtext</h5>
-               <div className='PRoductimg'><img src={product} alt="" /></div>
+               
+               <div className='PRoductimg'><img src={treak} alt="" /></div>
               
               </div>
               <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
-                <img  src={deals} alt="" />
+                
                
               </div>
             </div>
@@ -102,20 +103,52 @@ function MediaDealCard() {
           
           </SwiperSlide>
           <SwiperSlide>
-          <div id="superdealcard" className='card' >
-        <div className='flex-container20' style={{display:'flex',justifyContent:'space-evenly'}}>
+          <div   >
+        <div className='container' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
-               <h5 style={{paddingTop:'40px'}} >Subtext</h5>
-               <div className='PRoductimg'><img src={product} alt="" /></div>
+               
+               <div className='PRoductimg'><img src={grooming} alt="" /></div>
               
               </div>
               <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
-                <img  src={deals} alt="" />
+                
                
               </div>
             </div>
           </div>
        
+          </SwiperSlide>
+          <SwiperSlide>
+          <div   >
+        <div className='container' >
+              <div style={{justifyContent:'center'}} className='flex-item-center'>
+               
+               <div className='PRoductimg'><img src={bed} alt="" /></div>
+              
+              </div>
+              <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
+                
+               
+              </div>
+            </div>
+          </div>
+          
+          </SwiperSlide>
+          <SwiperSlide>
+          <div   >
+        <div className='container' >
+              <div style={{justifyContent:'center'}} className='flex-item-center'>
+               
+               <div className='PRoductimg'><img src={foodv} alt="" /></div>
+              
+              </div>
+              <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
+                
+               
+              </div>
+            </div>
+          </div>
+          
           </SwiperSlide>
           <div style={{marginTop:'40px'}} className="slider-controler" >
         

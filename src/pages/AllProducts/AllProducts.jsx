@@ -34,6 +34,11 @@ function AllProducts() {
                             <div><input className='inputbox' type="text" /></div>
                         </div>
                         <div>
+                        <div className='formlabel'> <label htmlFor="">Add Image</label> </div>
+                        <div><input type="file" /></div>
+                            
+                        </div>
+                        <div>
                             <div className='formlabel'> <label htmlFor="">Catogory</label> </div>
                             <div>
                                 <select  className='inputbox' name="" id="">
@@ -44,6 +49,12 @@ function AllProducts() {
                                     <option value=""></option>
                                 </select>
                             </div>
+                        </div>
+
+                      
+
+                        <div className='Addressbutton'>
+                        <button style={{width:'150px'}} > Submit </button>
                         </div>
                         
                        

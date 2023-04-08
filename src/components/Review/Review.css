@@ -7,7 +7,7 @@
     padding-bottom: 40px;
 }
 
-.card10 {
+.card0 {
     background-color: white;
     height: 250px;
     width: 350px;
@@ -47,7 +47,7 @@
         margin-bottom: 40px;
     }
     
-    .card10 {
+    .card0 {
         background-color: white;
         height: 250px;
         width: 300px;
@@ -70,4 +70,15 @@
 
 
 
+}
+
+@media only screen and (max-width: 320px) {
+    .card0 {
+        background-color: white;
+        height: 330px;
+        width: 230px;
+        border-radius: 10px;
+        
+    
+    }
 }

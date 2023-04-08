@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React from 'react'
 import './Multistepper.css'
 
   
@@ -8,7 +8,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import InstantPurchase from '../InstantPurchase/InstantPurchase'
+
 import PageOne from '../InstantPurchase/PageOne';
 import Payment from '../../components/Payment/Payment';
 import {Footer} from '../../components/Footer/Footer'
@@ -64,8 +64,7 @@ function Multistepper() {
            
         }}
     >
-        
-      
+  
     </div>
    
     <br />
@@ -113,7 +112,7 @@ function Multistepper() {
                 
                
                 <Typography sx={{ mt: 1, mb: 1 }}>
-                {content [activeStep+1]}
+                {content[activeStep+1]}
                 </Typography>
                 </Typography>
                 

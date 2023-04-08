@@ -1,8 +1,7 @@
 import React from 'react'
-import Carousel from "react-multi-carousel";
+
 import "react-multi-carousel/lib/styles.css"
-import video from '../../assets/video.png'
-import Card from '@mui/material/Card';
+
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -12,14 +11,11 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import dogfood from '../../assets/dogfood.png'
-import container from '../../assets/container.png'
-import newcat from '../../assets/newcat.png'
-import dogimg from '../../assets/dogimg.png'
+
 import { EffectCoverflow, Pagination, Navigation } from 'swiper'
 
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 
@@ -35,9 +31,9 @@ const Review = () => {
     <>
       <div className='Reviewheader'><h4>What Our Customer has  to say about us</h4> </div>
       <div align='center' className='Reviewheader'><h2>Subtext here--</h2> </div>
-      <div align='center' className='container' id='fmki'>
+      <div align='center' className='container-fluid' id='fmki'>
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           effect={'coverflow'}
           grabCursor={true}
           // centeredSlides={true}
@@ -67,7 +63,7 @@ const Review = () => {
         >
 
           <SwiperSlide sx={{}}>
-            <div className="card10">
+            <div className="card0">
               <div className='gridcontainer' style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '30px', }}>
                 <div className='gridleft' style={{ float: 'left', paddingLeft: '40px', }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -104,18 +100,17 @@ const Review = () => {
 
                 <Typography variant="body2" >
                   
-                  It's a Happy Day when our Furry friends can get Groomed!
-                  Grooming Keeps Your Pet Healthy and Active so that he
-                  never misses a Ball you throw. Grooming can help remove
-                  old hair and dead skin cells, as well as clean off the dirt
-                  and excess oil and lingeringandlingering
+                Had an amazing and beautiful experience with them.
+                 The staff was super friendly and professional.
+                  My fur baby Micku had fun and was really happy. 
+                  Strongly recommended. Thank you POSS.
                 </Typography>
               </CardContent>
             </div>
 
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card10">
+            <div className="card0">
               <div className='gridcontainer' style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '30px', }}>
                 <div className='gridleft' style={{ float: 'left', paddingLeft: '40px', }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -151,18 +146,17 @@ const Review = () => {
               <CardContent >
 
                 <Typography variant="body2" >
-                  It's a Happy Day when our Furry friends can get Groomed!
-                  Grooming Keeps Your Pet Healthy and Active so that he
-                  never misses a Ball you throw. Grooming can help remove
-                  old hair and dead skin cells, as well as clean off the dirt
-                  and excess oil and lingeringandlingering
+                Best service for dogs
+              And good ambience
+              Nice behaviour .
+              Excellent products and services.A must visit place ..loved it
                 </Typography>
               </CardContent>
             </div>
 
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card10">
+            <div className="card0">
               <div className='gridcontainer' style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '30px', }}>
                 <div className='gridleft' style={{ float: 'left', paddingLeft: '40px', }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -198,18 +192,17 @@ const Review = () => {
               <CardContent >
 
                 <Typography variant="body2" >
-                  It's a Happy Day when our Furry friends can get Groomed!
-                  Grooming Keeps Your Pet Healthy and Active so that he
-                  never misses a Ball you throw. Grooming can help remove
-                  old hair and dead skin cells, as well as clean off the dirt
-                  and excess oil and lingeringandlingering
+                Quality and quantity of model of product are available.
+                 The prices are so affordable and your small loved one gonna love them❤✨.
+                  Thankyou POSS for giving us amazing
+                  products.
                 </Typography>
               </CardContent>
             </div>
 
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card10">
+            <div className="card0">
               <div className='gridcontainer' style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '30px', }}>
                 <div className='gridleft' style={{ float: 'left', paddingLeft: '40px', }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -247,11 +240,10 @@ const Review = () => {
               <CardContent >
 
                 <Typography variant="body2" >
-                  It's a Happy Day when our Furry friends can get Groomed!
-                  Grooming Keeps Your Pet Healthy and Active so that he
-                  never misses a Ball you throw. Grooming can help remove
-                  old hair and dead skin cells, as well as clean off the dirt
-                  and excess oil and lingeringandlingering
+                It was a good experience to visit POSS the other day and overwhelming to see 
+                the hospitality and response by the staff.
+
+                  Recommended to all Pet Lovers
                 </Typography>
               </CardContent>
             </div>

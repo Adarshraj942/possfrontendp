@@ -3,9 +3,9 @@ import Card from '@mui/material/Card';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './DogCatogries.css'
-import CardContent from '@mui/material/CardContent';
+
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+
 import container from '../../assets/container.png'
 import dogfood from '../../assets/dogfood.png'
 import newcat from '../../assets/newcat.png'
@@ -44,8 +44,10 @@ export default function DogCatogries() {
   };
 
   const navigate = useNavigate();
-  function handleProduct(event){
-    navigate('/ProductPage');
+  function handleProduct(data){
+    alert(data)
+    console.log(data);
+    navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
   }
 
   function handleStepper(event){
@@ -54,35 +56,36 @@ export default function DogCatogries() {
   return (
     <>
      <div >
-  <div className='container-fluid' id='dogdog'>
-    <div className='flexl'>
+  <div className='container-fluid' id='dogdog' >
+    
+  <div  className='dogslider'>
+  <div className='flexl' style={{height:'0px'}}>
       <div className='flexp'><img src={mediafoot} alt="" /></div>
       <div className='flexr'><img src={secmediafoot} alt="" /></div>
     </div>
-  <div  className='dogslider'>
    <span >
     <h4 align="center">
     <div style={{fontSize:'15px',backgroundColor:'white',fontWeight:'bold',borderRadius:'12px',padding:'5px',outline:'transparent',width:'130px',borderColor:'white',marginRight:'20px'}} className="dropdownbutton">
         <button className="dropbtn20"><img style={{height:'20px'}} src={icon} alt="" /></button>
         <div className="dropdown-content20">
-          <a href="#"><img src={first}  alt="" />
+          <a href="/first" ><img src={first}  alt="" />
           <div>Accessories</div>
           </a>
 
       
-          <a href="#"><img src={third} alt="" />
+          <a href="/third" ><img src={third} alt="" />
           <div> Treats</div>
          
           </a>
-          <a href="#"><img src={sec} alt="" />
+          <a href="/sec"><img src={sec} alt="" />
           <div> Dog Food</div>
          
           </a>
       
-          <a href="#"><img src={forth} alt="" />
+          <a href="/forth"><img src={forth} alt="" />
           <div>  supplies</div>
           </a>
-          <a href="#"><img src={six} alt="" />
+          <a href="/heath"><img src={six} alt="" />
          <div> Health care</div>
           </a>
         </div>
@@ -107,6 +110,12 @@ export default function DogCatogries() {
             <CardMedia
               sx={{ height: '200px' }}
               image={dogfood}
+              onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}
             />
           
             
@@ -118,7 +127,12 @@ export default function DogCatogries() {
             <CardMedia
               sx={{ height: '200px' }}
               image={dogimg}
-              onClick={handleProduct}
+              onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TOY"
+                })
+              }}
             />
             </Card>
             <div className='cardtitle'>Toys</div>
@@ -128,7 +142,12 @@ export default function DogCatogries() {
             <CardMedia
               sx={{ height: '200px' }}
               image={newcat}
-              onClick={handleStepper}
+              onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TREAT"
+                })
+              }}
             />
           </Card>
           <div className='cardtitle'>Treats</div>
@@ -138,6 +157,12 @@ export default function DogCatogries() {
             <CardMedia
               sx={{ height: '200px' }}
               image={container}
+              onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }}
             /> 
           </Card>
           <div className='cardtitle'>Accessories</div>

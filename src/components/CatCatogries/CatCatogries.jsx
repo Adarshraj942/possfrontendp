@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Card from '@mui/material/Card';
 
-import CardContent from '@mui/material/CardContent';
+
 import CardMedia from '@mui/material/CardMedia';
 
 import './CatCatogries.css'
@@ -16,7 +16,7 @@ import catpc1 from '../../assets/catpc1.png'
 import catpc2 from '../../assets/catpc2.png'
 import catpc3 from '../../assets/catpc3.png'
 import catpc4 from '../../assets/catpc4.png'
-import Typography from '@mui/material/Typography';
+
 import { useNavigate }  from 'react-router-dom';
 import catfour from '../../assets/catfour.png'
 import catseven from '../../assets/catseven.png'
@@ -44,10 +44,12 @@ export default function CatCatogries() {
     }
   };
 
+ 
   const navigate = useNavigate();
-  function handlePayment(event){
-    navigate('/Payment');
+  function handleProduct(event){
+    navigate('/ProductPage');
   }
+
 
 
   return (
@@ -60,19 +62,19 @@ export default function CatCatogries() {
     <div style={{fontSize:'15px',backgroundColor:'white',fontWeight:'bold',borderRadius:'12px',padding:'5px',outline:'transparent',width:'130px',borderColor:'white',marginRight:'20px'}} className="dropdownbutton">
         <button className="dropbtn20"><img style={{height:'20px'}} src={icon} alt="" /></button>
         <div className="dropdown-content20">
-        <a href="#"><img src={catone} alt="" />
+        <a href><img src={catone} alt="" />
           <div>Accessories</div>
           </a>
-          <a href="#"><img src={cattwo } alt="" />
+          <a href><img src={cattwo } alt="" />
           <div>Cat Litter</div>
           </a>
-          <a href="#"><img src={catthree } alt="" />
+          <a href><img src={catthree } alt="" />
           <div>Food & Treats</div>
           </a>
-          <a href=""><img src={catfour} alt="" />
+          <a href><img src={catfour} alt="" />
           <div>Supplies</div>
           </a>
-          <a href=""><img src={catseven} alt="" />
+          <a href><img src={catseven} alt="" />
           <div>Healthcare</div>
           
           </a>
@@ -97,6 +99,7 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc1}
+            onClick={handleProduct}
           />
         
           
@@ -108,7 +111,8 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc2}
-            onClick={handlePayment}
+            onClick={handleProduct}
+            
           />
           </Card>
           <div className='cardtitle'>Litter</div>
@@ -118,6 +122,7 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc3}
+            onClick={handleProduct}
           />
         </Card>
         <div className='cardtitle'>Carriers</div>
@@ -127,6 +132,7 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc4}
+            onClick={handleProduct}
           /> 
         </Card>
         <div className='cardtitle'>Toys</div>

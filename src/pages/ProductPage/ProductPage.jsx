@@ -4,25 +4,18 @@ import './ProductPage.css'
 
 import { useEffect } from "react";
 import { getAllProducts } from "../../Api/ProductRequest.js";
-import swal from "sweetalert";
+
 import 'bootstrap/dist/css/bootstrap.css';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
-import dogproduct from '../../assets/dogproduct.png'
-import cart from '../../assets/cart.png'
+
 import {Footer} from '../../components/Footer/Footer'
 import { useNavigate }  from 'react-router-dom';
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar';
-import MobileFoot from '../../components/MobileFoot/MobileFoot'
+
 import MediaFooter from '../../components/Footer/MediaFooter';
-import juice from '../../assets/juice.png'
-import { height } from '@mui/system';
+
 
 const ProductPage = () => {
-    const value = 3.5;
+  
     const [category, setCategory] = useState("");
     // const [products, setProduct] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   
@@ -58,7 +51,7 @@ const ProductPage = () => {
       fetchData();
     }, []); // Or [] if effect doesn't need props or state
 
-    
+    const value = 3.5;
     const[users,setUsers]=useState([]);
     const [search,setSearch]=useState("");
     const [filterUsers,setFilteredUsers]=useState([]);
@@ -101,8 +94,6 @@ return `https://drive.google.com/uc?id=${images[0]}`
 
 }   
 ;
-
-
 
 
 
@@ -154,27 +145,28 @@ return `https://drive.google.com/uc?id=${images[0]}`
 
 <header className="card-header" style={{backgroundColor:'transparent'}}>
   <a
-    href="#"
+    href
     data-toggle="collapse"
     data-target="#collapse_11"
     aria-expanded="false"
     className="anchor"
+
   >
     <h6 className="title"><span>Filters</span> <i className="icon-control fa fa-chevron-down" /></h6>
  
   </a>
 </header>
 
-<div className="filter-content collapse show" id="collapse_11" >
+<div className="filter-content collapse " id="collapse_11" >
   <div className="card-body">
   <article className="filter-group">
 
 <header className="card-header" style={{backgroundColor:'transparent'}}>
   <a
-    href="#"
+    href
     data-toggle="collapse"
     data-target="#collapse_9"
-    aria-expanded="true"
+    aria-expanded="false"
     className="anchor"
   >
     <h6 className="title"><span>Catogrory</span> <i className="icon-control fa fa-chevron-down" /></h6>
@@ -194,18 +186,18 @@ return `https://drive.google.com/uc?id=${images[0]}`
         </div>
       </div>
     </form>
-    <ul className="list-menu">
+    <ul align='left' className="list-menu">
       <li>
-        <a href="#">Dogs</a>
+        <a href>Dogs</a>
       </li>
       <li>
-        <a href="#">Cats </a>
+        <a href>Cats </a>
       </li>
       <li>
-        <a href="#">Small Animals</a>
+        <a href>Small Animals</a>
       </li>
       <li>
-        <a href="#">Grooming</a>
+        <a href>Grooming</a>
       </li>
      
     </ul>
@@ -217,10 +209,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
         
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_1"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
             <h6 className="title"><span>Product type</span> <i className="icon-control fa fa-chevron-down" /></h6>
@@ -239,15 +231,15 @@ return `https://drive.google.com/uc?id=${images[0]}`
                 </div>
               </div>
             </form>
-            <ul className="list-menu">
+          
       {/* filter-group  .// */}
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_2"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
         
@@ -316,10 +308,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_3"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
           
@@ -360,10 +352,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_4"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
            
@@ -395,10 +387,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}} >
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_5"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
           
@@ -438,10 +430,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_6"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
         
@@ -509,10 +501,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_7"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
         
@@ -581,10 +573,10 @@ return `https://drive.google.com/uc?id=${images[0]}`
       <article className="filter-group">
         <header className="card-header" style={{backgroundColor:'transparent'}}>
           <a
-            href="#"
+            href
             data-toggle="collapse"
             data-target="#collapse_8"
-            aria-expanded="true"
+            aria-expanded="false"
             className="anchor"
           >
         
@@ -650,7 +642,7 @@ return `https://drive.google.com/uc?id=${images[0]}`
         </div>
       </article>{" "}
              
-            </ul>
+        
           </div>{" "}
           {/* card-body.// */}
         </div>
@@ -662,10 +654,6 @@ return `https://drive.google.com/uc?id=${images[0]}`
 </article>{" "}
 
 
-  <div className='filteroption'>
-   
- 
-</div>
             </div>
             <div className='col-md-9'>
           <div className='container' id='productcontainer' >

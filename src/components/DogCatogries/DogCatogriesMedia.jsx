@@ -1,7 +1,5 @@
 import React from 'react'
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+
 import container from '../../assets/container.png'
 import dogfood from '../../assets/dogfood.png'
 import newcat from '../../assets/newcat.png'
@@ -40,32 +38,32 @@ function DogCatogriesMedia() {
         <div className='dogslider' style={{marginTop:'20px',marginBottom:'40px'}} >
           <span >
             <h4 align="center">
-              <div style={{ fontSize: '15px', backgroundColor: 'white', fontWeight: 'bold', borderRadius: '12px', padding: '5px', outline: 'transparent', width: '130px', borderColor: 'white', marginRight: '20px' }} className="dropdownbutton">
+              <div className="dropdownbutton">
                 <button className="dropbtn20"><img style={{ height: '20px' }} src={icon} alt="" /></button>
                 <div className="dropdown-content20" style={{  position:"absolute" , zIndex:"100" }}>
-                  <a href="#"><img src={first} alt="" />
+                  <a href="/"><img src={first} alt="" />
                     <div>Accessories</div>
                   </a>
 
 
-                  <a href="#"><img src={third} alt="" />
+                  <a href="/"><img src={third} alt="" />
                     <div> Treats</div>
                   </a>
-                  <a href="#"><img src={sec} alt="" />
+                  <a href="/"><img src={sec} alt="" />
                     <div> Dog Food</div>
 
                   </a>
 
-                  <a href="#"><img src={forth} alt="" />
+                  <a href="/"><img src={forth} alt="" />
                     <div>  supplies</div>
                   </a>
-                  <a href="#"><img src={six} alt="" />
+                  <a href="/"><img src={six} alt="" />
                     <div> Health care</div>
                   </a>
                 </div>
               </div>
               <span className='dogheader'>Dog
-                <select style={{ fontSize: '15px', textAlign: 'center', backgroundColor: 'white', fontWeight: '800', borderColor: 'white', borderRadius: '12px', padding: '5px', outline: 'transparent', marginLeft: '20px', width: "130px" }} name="" id="">
+                <select  name="" id="">
                   <option value="">5 year</option>
                   <option value="">4 year</option>
                   <option value="">3 year</option>
@@ -109,21 +107,29 @@ function DogCatogriesMedia() {
         modules={[EffectCoverflow, Pagination, Navigation]}
 
         >
-          <SwiperSlide sx={{}}>
-            <img src={container} alt="" />
+          <SwiperSlide >
+           <div className='inner'>
+           <img onClick={handleProduct} src={container} alt="" />
             <div className='cardtitle'>Accessories</div>
+           </div>
           </SwiperSlide>
           <SwiperSlide>
+            <div className='inner'>
             <img onClick={handleProduct} src={newcat} alt="" />
             <div className='cardtitle'>Treats</div>
+            </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={dogimg} alt="" />
+            <div className='inner'>
+            <img onClick={handleProduct} src={dogimg} alt="" />
             <div className='cardtitle'>Toys</div>
+            </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={dogfood} alt="" />
+           <div className='inner'>
+           <img onClick={handleProduct} src={dogfood} alt="" />
             <div className='cardtitle'>Food</div>
+           </div>
           </SwiperSlide>
           <div className="slider-controler" >
 

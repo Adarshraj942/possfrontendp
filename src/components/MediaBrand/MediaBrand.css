@@ -2,11 +2,19 @@
     display: none;
 }
 
+.container img{
+    width:auto
+}
 
 
 @media  screen and (max-width:780px) {
 #fgmi{
     display: block;
+}
+
+
+#BrandImg img{
+    width:230px
 }
 
 }

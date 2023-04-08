@@ -6,6 +6,10 @@
     padding-bottom: 20px;
 }
 
+.forml{
+  justify-content: left;
+  margin: 40px;
+}
 
 .paym{
     margin-left:40px
@@ -118,17 +122,23 @@ label h4 {
     border-radius: 13px;
 }
 
+#carddate h5{
+    font-size: 18px;
+    font-weight: 650;
+}
+
 #paycards h3 {
     font-weight: 500;
     font-size: 15px;
    
 }
 
-.cardbtn{
+.cardbtn4{
     border-color: transparent;
     background-color: transparent;
     outline: transparent;
     text-align: left;
+    width: 350px;
 }
 
 .headerpay {
@@ -138,17 +148,17 @@ label h4 {
     padding-top: 40px;
     padding-bottom: 20px;
     font-weight: 800;
-    margin-left: 60px
+
 }
 
-.paybtn {
+.paybtn2 {
     padding: 10px;
     font-size: 15px;
     font-weight: 700;
     background-color: #F9C058;
     border-color: transparent;
     border-radius: 56px;
-    width: 180px;
+    width: 200px;
     margin-bottom: 40px;
     height: 50px;
 }
@@ -174,9 +184,10 @@ label h4 {
 
 .flexcontent2{
     display: flex;
+    width: 500px;
 }
 
-#paybtn{
+#paybtn2{
     margin-top:40px
 }
 .payupi {
@@ -225,12 +236,14 @@ margin-left:20px;
     width: 331px;
     border-bottom: #F3CA6D;
 }
-
+.poi{
+    width: 500px;
+}
 .flexcontent{
     
     
     justify-content: center;
-    display:flex;justify-content:space-between;padding-left:40px;margin-top:30px
+    display:inline;justify-content:space-between;padding-left:30px;margin-top:30px
   }
 
 .tabconetnt {
@@ -238,7 +251,7 @@ margin-left:20px;
 }
 
 #cardh{
-    display:flex;
+    display:inline;
 }
 
 #bgimg img{
@@ -246,18 +259,17 @@ margin-left:20px;
 right: 150px;
 
 height:350px;
-transform: translateY(-440px);
+transform: translateY(-260px);
 }
 #cardq{
     justify-content:right;
+    margin-top: 20px;
 }
 #line{
     justify-content: left;
 }
 
-#container2{
-    margin: 20px;
-   }
+
 
    #lipimg{
     float:right;
@@ -266,6 +278,7 @@ transform: translateY(-440px);
 
 .flexcontent2{
     display: block;
+    width: 500px;
 }
 
 #mediacv{
@@ -349,6 +362,14 @@ label{
         margin-left: 120px;
     }
 
+    .flexcontent2{
+        width:300px ;
+    }
+
+    .forml{
+        justify-content: center;
+        margin: 2px;
+      }
     
 .tabgo{
     margin-top:20px; 
@@ -424,14 +445,14 @@ label{
    text-align: left;
 }
     
-.paybtn {
+.paybtn2 {
     padding: 10px;
     font-size: 15px;
     font-weight: 700;
     background-color: #F9C058;
     border-color: transparent;
     border-radius: 56px;
-    width: 180px;
+    width: 200px;
     margin-bottom: 80px;
     height: 50px;
   
@@ -441,7 +462,7 @@ label{
         border-color: transparent;
         width: 100px;
     }
-    .cardbtn{
+    .cardbtn4{
         border-color: transparent;
         background-color: transparent;
         outline: transparent;
@@ -455,7 +476,8 @@ label{
       
     }
    #container2{
-    margin-top: 70px;
+    margin-top: 20px;
+    
     align-items: center;
    }
 
@@ -490,7 +512,7 @@ label{
  
 
     
-#paybtn{
+#paybtn20{
     margin-top:40px
 }
     
@@ -599,4 +621,75 @@ label{
     padding-left: 0px;
 }
 
+
+}
+
+@media(max-width: 320px){ 
+   
+    #paycards {
+        width: 250px;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 15px;
+       text-align: left;
+    }
+
+    
+    .flexcontent2{
+        width:230px ;
+        justify-content: center;
+    }
+
+    .paybtn20 {
+        padding: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        background-color: #F9C058;
+        border-color: transparent;
+        border-radius: 56px;
+        width: 200px;
+        margin-bottom: 80px;
+        height: 50px;
+      
+    }
+    .forml{
+        justify-content: center;
+        margin: 5px;
+      }
+    #carddate {
+        width: 230px;
+        padding: 20px;
+        background: #FFFFFF;
+        border-radius: 13px;
+        margin-top: 20px
+    }
+
+    .nameinput2{
+        width: 230px;
+    }
+
+    .Mobiinput{
+        width: 230px;
+    }
+    #paycards {
+        width: 230px;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 15px;
+       text-align: left;
+    }
+    #lipimg{
+        float:right;
+        display: block;
+        transform: translateY(-150px);
+    }
+
+ 
+   
+       
+      
 }

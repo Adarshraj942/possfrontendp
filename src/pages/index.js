@@ -6,7 +6,7 @@ import DogCatogries from '../components/DogCatogries/DogCatogries'
 import CatCatogries from '../components/CatCatogries/CatCatogries'
 
 import WhyUS from '../components/WhyUS/WhyUs'
-import LearnWithPoss from '../components/LearnWithPoss/LearnWithPoss'
+// import LearnWithPoss from '../components/LearnWithPoss/LearnWithPoss'
 import Contact from '../components/Contact/Contact'
 import Review from '../components/Review/Review'
 import { Footer } from '../components/Footer/Footer'
@@ -47,7 +47,7 @@ const Home = () => {
 
 
     <br />
-    <CardCarasouel />
+    
     <br />
     <OurPrices />
 
@@ -56,8 +56,8 @@ const Home = () => {
     <Review />
     <br />
     <WhyUS />
-    <br />
-    <LearnWithPoss />
+    
+    <CardCarasouel />
  
 
     <br />
@@ -67,7 +67,7 @@ const Home = () => {
 
 
     <Contact />
-    <br />
+    
     <MediaFooter />
 
     <Footer />

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import product from '../../assets/product.png'
-import anime from '../../assets/anime.png'
+
 import animeleg from '../../assets/animeleg.png'
 import './PageOne.css'
 import per from '../../assets/per.png'
 import tup from '../../assets/tup.png'
-import Button from "@mui/material/Button";
+
 import pandit from '../../assets/pandit.png'
 import mediay from '../../assets/mediay.png'
-import footj from '../../assets/footj.png'
+
 import { useNavigate, useParams } from 'react-router-dom'
 import { getProduct } from '../../Api/ProductRequest'
 import { createOrder } from '../../Api/OrderRequest'
@@ -99,6 +99,34 @@ const PageOne = () => {
     <div className='per'><img src={per} alt="" /></div>
       <div className='flex-contianer' >
         <div className='flex-item-left' >
+          <div className='mobileseen'>
+          <div className='mediacarf'  align='center'>
+          <div className='card' id='cardfor'>
+           <div style={{display:'inline'}}>
+           <div align='center'><img src={product} alt="" /></div>
+        
+           
+           </div>
+           <div>
+                        <hr />
+                      <div className='container-fluid'>
+                <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
+                      <div>price Subtotal :</div>
+                      <div>Rates</div>
+                  </div>
+                  <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
+                      <div>Shipping Charges</div>
+                      <div>Rates</div>
+                  </div>
+                  <div >
+                      <div align='center'><button className='totalbutton'>Total Amount : ₹5.42</button></div>
+                      
+                  </div>
+                </div>
+                      </div>
+          </div>
+        </div>
+          </div>
         <div align='center'><h4 className='header'>Contact Information</h4></div>
        <div align='left'  style={{height:'0px'}} className='mediay' ><img src={mediay} alt="" /></div>
   <div align='right' style={{height:'0px'}} className='imghim'><img src={pandit} alt="" /></div>
@@ -170,7 +198,7 @@ const PageOne = () => {
           </div>
         </div>
       
-           <button className=''>Checkout</button>
+           
         
    </form>
        
@@ -207,49 +235,11 @@ const PageOne = () => {
 
       <div className='flex-container' id='purdisplay'>
         
-        <div className='flex-item-left' style={{justifyContent:'left',paddingLeft:'70px'}}>
-        <div ><h4 style={{fontWeight:'bolder',color:'rgb(0,0,0,1)',fontSize:'25px',paddingLeft:'40px',paddingBottom:'20px'}}>Method of Shipping</h4></div>
-            <p  style={{paddingLeft:'50px'}}><input type="checkbox" />
-         <span style={{paddingLeft:'20px'}} >Shipping Charge fixed</span></p></div>
-        <div className='flex-item-right' style={{justifyContent:'right',paddingRight:'40px',marginBottom:'100px'}}>
-        <div className='card300'>
-            <h4> <b> Total </b><span > ₹{ post.price}</span></h4>
-            </div>
-          
-           
-         
-        </div>
+ 
       </div>
 
       <div className='container-fluid'  id='mobile'>
-        
-      <div className='mediacarf'  align='center'>
-          <div className='card' id='cardfor'>
-           <div style={{display:'inline'}}>
-           <div align='center'><img src={product} alt="" /></div>
-           <hr />
-           <div className='card' id='carf' >
-            <div>
-             
-            <div align="center"><h6 style={{padding:'10px',fontSize:'15px',fontWeight:'700'}}>Product Name</h6></div>
-              <div align="center"  style={{display:"flex",justifyContent:'space-between'}}>
-               <div style={{padding:'0px 20px 20px 20px'}}> <h6 style={{fontSize:'15px'}}>Price</h6> </div>
-              <div style={{padding:'0px 20px 20px 0px'}}> <h6 style={{fontSize:'15px'}}> ₹54.12 /dis</h6></div>
-             </div>
-            </div>
-           </div>
-           </div>
-          </div>
-        </div>
-        <div  style={{justifyContent:'center',display:'inline'}}>
-        
-        <div align='center'><button style={{padding:'15px',width:'220px',borderColor:'transparent',  borderRadius: '7px',   background:'#F4F4F4',marginTop:'20px'}} >
-        
-            <h4 ><b> Total </b><span > ₹{post.price}</span></h4>
-           
-          </button>
-          </div>
-        </div>
+      
       </div>
       
       <div className='flexi' >

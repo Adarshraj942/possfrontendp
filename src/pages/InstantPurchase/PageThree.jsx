@@ -2,7 +2,7 @@ import React from 'react'
 import product from '../../assets/product.png'
 import './PageThree.css'
 import { useNavigate }  from 'react-router-dom';
-import pp from '../../assets/pp.png'
+
 import jump from '../../assets/jump.png'
 import gikk from '../../assets/gikk.png'
 import jil from '../../assets/jil.png'
@@ -28,9 +28,9 @@ const PageThree = () => {
                     <img src={product} alt="" />
                 </div> 
                 <div>
-                    <div className='card' id='cardpro' style={{margin:'70px 40px 50px 40px' }}>
-                     <div className='container' style={{padding:'50px 40px 40px 40px'}} >
-                     <div  align='center'>Product name</div>
+                    <div className='card' id='cardpro' >
+                     <div className='container' style={{padding:'20px'}}  >
+                     <div  align='center'><h4> <b>Product name</b> </h4></div>
                        <div align='center'  style={{display:'flex',justifyContent:'space-between',padding:'20px'}}>
                        <div>Price</div>
                         <div>54.3</div>
@@ -43,7 +43,7 @@ const PageThree = () => {
                 <hr />
                 <div  id='comple'>
                 <div>
-                   <button className='orderComplete' onClick={MyAccount}>Order Completed</button>
+                   <button className='orderComplete' onClick={MyAccount}>Shop More</button>
                 </div> 
                 <div>
                     <button className='priceComplete'> <b>₹ 54.5</b> </button>

@@ -10,7 +10,9 @@
     font-weight: bold;
     align-items: center;
 }
-
+#priceContainer{
+    padding:40px
+}
 .subtextheader {
     padding-bottom: 40px;
 }
@@ -37,6 +39,7 @@ ul li h4 {
 
 .listitems {
     text-align: left;
+    height:170px
 }
 
 .listitems li {
@@ -61,13 +64,13 @@ ul li h4 {
     width: 300px;
     border-radius: 20px;
     background-color: #FFFFFF;
-    height: 450px;
+    height: 400px;
     box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
 }
 
 #cardPrice:hover {
     box-shadow: -103px 30px 100px rgba(0, 0, 0, 0.15);
-    height: 450px;
+    height: 430px;
     background-color: #E6EBE5;
 }
 
@@ -112,5 +115,28 @@ ul li h4 {
             width:100%;
             padding-top:10px
         }
+        #cardPrice {
+            width: 290px;
+            border-radius: 20px;
+            background-color: #FFFFFF;
+            height: 400px;
+            box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+        }
         
   }
+
+  @media(max-width: 320px){ 
+    #cardPrice {
+        width: 230px;
+        border-radius: 20px;
+        background-color: #FFFFFF;
+        height: 450px;
+        box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+    }
+    .dogheader select{
+        font-size:15px;text-align:center;background-color:white;font-weight:650;border-color:white;border-radius:12px;padding:5px;outline:transparent;width:80px 
+    }
+    #priceContainer{
+        padding:0px
+    }
+}

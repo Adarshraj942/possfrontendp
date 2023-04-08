@@ -213,12 +213,18 @@ width:500px;
     display: none;
 }
 
+.mobileseen{
+    display: none;
+}
 @media only screen and (max-width: 600px) {
 
 .flexi{
     display: none;
 }
 
+.mobileseen{
+    display: block;
+}
 .mediacarf{
     display: block;
 }
@@ -228,12 +234,13 @@ width:500px;
     height:0px
 }
 #cardfor{
-    width:300px;
+  width: auto;
     padding: 40px;
     background: #F4F7EE;
     border: 3px solid #F4F7EE;
     border-radius: 25px;
     justify-content: center;
+    margin:20px 20px 20px 20px;
 }
 
 #carf{
@@ -452,3 +459,44 @@ display: block;
     }
     
 }
+@media only screen and (max-width: 320px){
+    .mobileseen {
+        display: block;
+    }
+    #cardfor{
+        margin:20px 20px 20px 20px;
+        width:auto;
+        padding: 40px;
+        background: #F4F7EE;
+        border: 3px solid #F4F7EE;
+        border-radius: 25px;
+        justify-content: center;
+    }
+    .nameinput2 {
+        background-color: rgba(255, 255, 255, 1);
+        border: 1.8793px solid #EAEAEA;
+        border-radius: 5.63791px;
+        padding: 7px;
+    width:250px;
+        border-color: transparent;
+        border-radius: 5px;
+        outline-color: #F2C879;
+        box-shadow: 3px 4px 5px rgba(230, 235, 229, 1);
+    }
+    .Mobiinput{
+        background-color: rgba(255, 255, 255, 1);
+        border: 1.8793px solid #EAEAEA;
+        border-radius: 5.63791px;
+        padding: 7px;
+    width:250px;
+        border-color: transparent;
+        border-radius: 5px;
+        outline-color: #F2C879;
+        box-shadow: 3px 4px 5px rgba(230, 235, 229, 1);   
+    }
+    #cardfor img{
+       height:200px;
+       width: 200px;
+    }
+}
+

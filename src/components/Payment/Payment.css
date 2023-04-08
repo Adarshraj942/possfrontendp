@@ -1,7 +1,7 @@
 #card10 {
     width: 500px;
     height: 142px;
-    margin-right: 100px;
+  margin: 20px 20px 0px 50px;
     box-sizing: border-box;
     background: #FFFFFF;
     border-radius: 13px;
@@ -9,6 +9,18 @@
    
 }
 
+#paycards2{
+    width:340px;
+    text-align: left;
+    padding: 15px;
+    border-radius: 20px;
+    justify-content: center;
+    
+}
+#paycards2 h3{
+    font-weight: 650;
+    font-size: 18px;
+}
 .flexcontent4 {
     display: flex;
     justify-content: space-between;
@@ -26,9 +38,7 @@
     font-weight: 700;
 }
 
-.paymentgatway {
-    padding: 60px
-}
+
 
 .flexright0 {
     justify-content: right;
@@ -96,14 +106,22 @@
 }
 
 
-.paycontainer{
-margin-left:20px ;
+.paymentgatway2 {
+    padding: 40px
 }
 
 .cssbtn{
      margin-left: 10px;
 }
 
+#paycontainer2{
+    margin:40px 20px 20px 70px;
+    justify-content: center;
+    text-align: center;
+    }
+    .umi{
+        display: none;   
+    }
 .flying  {
   
 float: right;
@@ -137,9 +155,16 @@ display: block;
 #lomnk{
     display: none;
 }
+
+.formobile{
+    display: none
+}
 @media only screen and (max-width: 600px) {
 
     #lomnk{
+        display: block;
+    }
+    .formobile{
         display: block;
     }
 
@@ -192,8 +217,8 @@ justify-content: right;
         display: none;
         
         }
-        .paycontainer{
-            margin:20px 20px 20px 20px;
+        #paycontainer2{
+            margin:10px 10px 10px 0px;
             justify-content: center;
             text-align: center;
             }
@@ -240,7 +265,7 @@ justify-content: right;
             
         }
         #card10 {
-            width: 250px;
+            width: auto;
             height: 142px;
             margin:40px 40px 40px 40px;
             box-sizing: border-box;
@@ -252,7 +277,7 @@ justify-content: right;
 
         #card50{
            
-            width: 330px;
+           width: auto;
             height: auto;
          
         
@@ -266,9 +291,94 @@ justify-content: right;
             text-align: center;
             margin: 0px;
         }
+        #paycards2{
+            width:auto;
+        }
      
     
-            .paymentgatway {
+            .paymentgatway2 {
                 padding: 20px
             }
+}
+
+
+@media(max-width: 320px){ 
+    #card50{
+       width:180px
+     }
+     #cardbig img{
+        width:200px;
+        width: 200px;
+     }
+     #cardbig{
+        display:inline;justify-content:center;
+      }
+      #cardbig{
+       width: 230px;
+      }
+      .subtext{
+        color:black;
+        font-size:20px ;
+        font-style: bolder;  
+    }
+    .headingpay h4{
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    #card10 {
+        width: auto;
+        height: 100px;
+        margin:20px 20px 20px 20px;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border-radius: 13px;
+        padding: 15px;
+        text-align: left;
+       
+    }
+    .formobile{
+        display: block;
+    }
+    #paycontainer2{
+        margin:10px 10px 10px 10px;
+        justify-content: center;
+        text-align: center;
+        }
+        #paycards2{
+            width:200px;
+            text-align: left;
+            padding: 15px;
+            border-radius: 20px;
+            
+        }
+        #paycards2 h3{
+            font-size: 15px;
+            font-weight: 650;
+            
+        }
+        .totalbutton {
+            width: 160px;
+            height: 52px;
+            background: #D9D9D9;
+            border-radius: 18px;
+            font-size: 15px;
+            font-weight: 700;
+            border-color: transparent;
+        }
+        .paymentgatway2 {
+            padding: 20px
+        }
+        #card50{
+           
+            width: auto;
+             height: auto;
+          
+         
+             background: #F4F7EE;
+             border: 3px solid #F4F7EE;
+             border-radius: 25px;
+         
+         }
 }

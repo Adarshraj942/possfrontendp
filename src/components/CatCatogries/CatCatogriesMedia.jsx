@@ -8,10 +8,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import dogfood from '../../assets/dogfood.png'
-import container from '../../assets/container.png'
-import newcat from '../../assets/newcat.png'
-import dogimg from '../../assets/dogimg.png'
+
 
 
 import catthree from '../../assets/catthree.png'
@@ -20,42 +17,46 @@ import catpc1 from '../../assets/catpc1.png'
 import catpc2 from '../../assets/catpc2.png'
 import catpc3 from '../../assets/catpc3.png'
 import catpc4 from '../../assets/catpc4.png'
-import Typography from '@mui/material/Typography';
-import { useNavigate }  from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import catfour from '../../assets/catfour.png'
 import catseven from '../../assets/catseven.png'
 
 
 function CatCatogriesMedia() {
+
+  const navigate = useNavigate();
+  function handleProduct(event) {
+    navigate('/ProductPage');
+  }
   return (
     <div className='Mediacontainer'>
            <div align='center' className='container'>
            <div  className='catslider'  style={{marginTop:'20px',marginBottom:'40px'}}>
    <span >
     <h4 align="center">
-    <div style={{fontSize:'15px',backgroundColor:'white',fontWeight:'bold',borderRadius:'12px',padding:'5px',outline:'transparent',width:'130px',borderColor:'white',marginRight:'20px'}} className="dropdownbutton">
+    <div  className="dropdownbutton">
         <button className="dropbtn20"><img style={{height:'20px'}} src={icon} alt="" /></button>
-        <div className="dropdown-content20" style={{  position:"absolute" , zIndex:"100" }}>
-        <a href="#"><img src={catone} alt="" />
+        <div className="dropdown-content20" >
+        <a href="/" ><img src={catone} alt="" />
           <div>Accessories</div>
           </a>
-          <a href="#"><img src={cattwo } alt="" />
+          <a href="/"><img src={cattwo } alt="" />
           <div>Cat Litter</div>
           </a>
-          <a href="#"><img src={catthree } alt="" />
+          <a href="/"><img src={catthree } alt="" />
           <div>Food & Treats</div>
           </a>
-          <a href=""><img src={catfour} alt="" />
+          <a href="/"><img src={catfour} alt="" />
           <div>Supplies</div>
           </a>
-          <a href=""><img src={catseven} alt="" />
+          <a href="/"><img src={catseven} alt="" />
           <div>Healthcare</div>
           
           </a>
         </div>
       </div>
    <span className='dogheader'>Cat
-    <select  style={{fontSize:'15px',textAlign:'center',backgroundColor:'white',fontWeight:'800',borderColor:'white',borderRadius:'12px',padding:'5px',outline:'transparent',marginLeft:'20px',width:"130px"}} name="" id="">
+    <select  name="" id="">
       <option value="">5 year</option>
       <option value="">4 year</option>
       <option value="">3 year</option>
@@ -100,21 +101,32 @@ function CatCatogriesMedia() {
         >
 
         
-          <SwiperSlide sx={{}}>
-          <img src={catpc1} alt="" />
+          <SwiperSlide >
+          <div className='inner'>
+          <img onClick={handleProduct}  src={catpc1} alt="" />
           <div className='cardtitle'>Food</div>
+          </div>
           </SwiperSlide>
           <SwiperSlide>
-          <img src={catpc2} alt="" />
+            <div className='inner'>
+            <img onClick={handleProduct}  src={catpc2} alt="" />
           <div className='cardtitle'>Litter</div>
+            </div>
+          
           </SwiperSlide>
           <SwiperSlide>
-            <img src={catpc3} alt="" />
+            <div className='inner'>
+            <img onClick={handleProduct}  src={catpc3} alt="" />
             <div className='cardtitle'>Carriers</div>
+            </div>
+           
           </SwiperSlide>
           <SwiperSlide>
-          <img src={catpc4} alt="" />
+            <div className='inner'>
+            <img onClick={handleProduct}  src={catpc4} alt="" />
           <div className='cardtitle'>Toys</div>
+            </div>
+          
           </SwiperSlide>
           <div className="slider-controler" >
         

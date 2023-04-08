@@ -17,12 +17,12 @@
     font-weight: 700;
     text-align: center;
     font-size: 50px;
-    padding-top: 60px;
-    padding-bottom: 50px;
+   padding-top: 20px;
 }
 
 #crdroes{
     display: flex;
+    padding: 10px;
 }
 
 #Delasblock{
@@ -31,8 +31,8 @@
 @media only screen and (max-width: 600px) {
     .OurServiceSlider h4 {
         font-size: 20px;
-        padding-top: 30px;
-        padding-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     .flex-container20 {
         display: inline-flex;
@@ -42,11 +42,6 @@
     display:none
 }
 
-    .PRoductimg img{
-        height:100px;
-        width: 100px;
-        
-    }
   
 
 

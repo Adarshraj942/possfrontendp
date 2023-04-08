@@ -1,5 +1,5 @@
 import React from 'react'
-import Account from './Account'
+
 import './AccountSidebar.css'
 
 const AccountSidebar = () => {
@@ -10,8 +10,8 @@ const AccountSidebar = () => {
    
    <a href="/Account"> Manage Account</a>
    <a href="/AddressBook">Address Book</a>
-   <a href="/">Wishlist</a>
-   <a href="/">Store Order</a>
+   <a href="/Wishlist">Wishlist</a>
+   <a href="/StoreOrder">Store Order</a>
    <a href="/ChangePassword">Change Password</a>
   
  </div>

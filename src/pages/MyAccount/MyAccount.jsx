@@ -5,19 +5,7 @@ import { Tab } from "@headlessui/react";
 import Navbar from '../../components/Navbar/Navbar'
 const MyAccount = () => {
   const [tabSelected, setTabSelected] = useState(null);
-  const tabheader = {
-    backgroundColor: "rgba(217, 217, 217, 1)",
-    borderColor: "transparent",
-    border: " 0.5px solid rgba(0, 0, 0, 0.25)",
-  
-    padding: "10px",
-    fontWeight: "700",
-    height: "50px",
-    alignItems: "center",
-    borderRadius: "10px",
-    margin: "15px 5px 15px 5px",
-    width: "1440px",
-  };
+
 
   const buttonheader = {
     backgroundColor: "transparent",

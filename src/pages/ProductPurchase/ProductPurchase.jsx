@@ -5,26 +5,28 @@ import certified from '../../assets/certified.png'
 import shipping from '../../assets/shipping.png'
 import chat from '../../assets/chat.png'
 import hey from '../../assets/hey.png'
-import product from '../../assets/product.png'
+// import product from '../../assets/product.png'
 import downarrow from '../../assets/downarrow.png'
 import back from '../../assets/back.png'
 import './ProductPurchase.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
-import cart from '../../assets/cart.png';
-import dogproduct from '../../assets/dogproduct.png'
-import purchase from '../../assets/purchase.png'
+// import Tabs from 'react-bootstrap/Tabs';
+// import Tab from 'react-bootstrap/Tab';
+// import Box from '@mui/material/Box';
+// import Rating from '@mui/material/Rating';
+// import StarIcon from '@mui/icons-material/Star';
+// import cart from '../../assets/cart.png';
+// import dogproduct from '../../assets/dogproduct.png'
+// import purchase from '../../assets/purchase.png'
 import { useNavigate, useParams }  from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
-import MobileFoot from '../../components/MobileFoot/MobileFoot'
+
+
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar'
 import MediaFooter from '../../components/Footer/MediaFooter'
 import chears from '../../assets/chears.png'
-import sidk from '../../assets/sidk.png'
+import ProductCard from '../ProductCard/ProductCard'
+
 import po from '../../assets/po.png'
 import lo from '../../assets/lo.png'
 import { getProduct } from '../../Api/ProductRequest'
@@ -34,6 +36,8 @@ import { addToWishlist } from '../../Api/WishlistRoute'
 
 
 function ProductPurchase() {
+
+ 
     const userData =localStorage.getItem("userId")
     const userInfo =localStorage.getItem("userInfo")
 
@@ -127,7 +131,7 @@ for(var i = 0; i < str_array.length; i++) {
        <div align='right' className='chears'> <img src={chears} alt="" /></div>
         <div className='flex-containenr' style={{}}>
             <div className='flex-item-left'>
-                <div ><button className='backbtnpurchase'><span style={{paddingRight:'5px'}}><img src={back} alt="" /></span>Back</button></div>
+                <div ><button onClick={() => navigate(-1)} className='backbtnpurchase'><span style={{paddingRight:'5px'}}><img src={back} alt="" /></span>Back</button></div>
                <div className='desktoprow'>
                <div id='itemrows' className='row' >
                     <div  align="center" className='col-3'>
@@ -171,10 +175,10 @@ for(var i = 0; i < str_array.length; i++) {
                      </div>
                   <div className='ulcard' align='center'>
                   <ul align='center' class="preview-thumbnail nav nav-tabs" >
-                           <li class="active"><a data-target="#pic-1" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[2]}`} /></div></a></li>
-                           <li><a data-target="#pic-2" data-toggle="tab"> <div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[3]}`} /></div> </a></li>
-                           <li><a data-target="#pic-3" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[4]}`} /></div></a></li>
-                           <li className='onelistotem' ><a data-target="#pic-4" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[5]}`} /></div></a></li>
+                           <li class="active"><a href data-target="#pic-1" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[2]}`} /></div></a></li>
+                           <li><a href data-target="#pic-2" data-toggle="tab"> <div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[3]}`} /></div> </a></li>
+                           <li><a href data-target="#pic-3" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[4]}`} /></div></a></li>
+                           <li className='onelistotem' ><a href data-target="#pic-4" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[5]}`} /></div></a></li>
                          
                  </ul>
                   </div>
@@ -197,7 +201,7 @@ for(var i = 0; i < str_array.length; i++) {
                
 
                    <hr className='titlem' />
-                   <div style={{display:'flex',margin:'5px'}}>
+                   <div style={{display:'flex',margin:'2px'}}>
                    <div className='Addtocart'>
                    <button  onClick={()=>{
                                 wishlist(post._id)
@@ -205,7 +209,7 @@ for(var i = 0; i < str_array.length; i++) {
                        Add to cart</button>
                    </div>
                    <div className='Purchasebtn'>
-                       <button onClick={InstantPurchase}>Buy Now</button>
+                       <button onClick={InstantPurchase} >Buy Now</button>
 
                    </div>
                    
@@ -250,20 +254,20 @@ for(var i = 0; i < str_array.length; i++) {
      <div  className='row' >
                     <div  align="center" className='col-3'>
                     
-                            <div ><img src={instant} alt="" /></div>
+                            <div className='pyrchase' ><img src={instant} alt="" /></div>
                             <div><p style={{fontSize:'12px'}}>Speedy Deliveries</p></div>
                         </div>
                         <div align="center" className='col-3'>
                         
-                            <div ><img src={certified} alt="" /></div>
+                            <div className='pyrchase' ><img src={certified} alt="" /></div>
                             <div><p  style={{fontSize:'12px'}}>Amazing Value</p></div>
                     </div>
                         <div align="center" className='col-3'>
-                                <div><img src={shipping} alt="" /></div>
+                                <div className='pyrchase'><img src={shipping} alt="" /></div>
                                 <div><p  style={{fontSize:'12px'}}>Free Shipping </p></div>
                         </div>
                         <div align="center" className='col-3'>
-                        <div><img src={chat} alt="" /></div>
+                        <div className='pyrchase'><img src={chat} alt="" /></div>
                         <div><p  style={{fontSize:'12px'}}>Chat with us</p></div></div>
                     </div>
      </div>
@@ -274,35 +278,8 @@ for(var i = 0; i < str_array.length; i++) {
         <div className='fleh'><img src={po} alt="" /></div>
      </div>
 
-      <div className='container-fluid'>
-      <div align="center" style={{marginTop:'20px'}} ><h4 style={{fontWeight:'800',fontSize:'25px',color:'black',marginTop:'20px',paddingBottom:'40px'}}>People also brought</h4></div>
-      <div className="col-md-14" style={{margin:'20px'}}>
-      <div align='center' className='row' id='colmine2'    >
-            {products &&
-            products.length > 0 &&
-            products.map((ele) => (
-                <div align='center' id='colmine'  className="col-sm-2" >
-                <div id="Productcard50" className='card'  >
-                    <div className='cardimg' style={{borderRadius:'20px'}} align="center"><img src={dogproduct} alt="" /></div>
-                   
-                    <div style={{paddingTop:'20px'}} align="center">
-                        <b >{ post.name}</b>
-                        <h6 style={{paddingTop:'10px'}}>{post.price} <b>Discount</b> </h6>
-                    </div>
-                    <div style={{paddingTop:'10px',borderRadius:'20px'}} align="center">
-                    <button   className='button30'><img style={{backgroundColor:'#FFFFFF',margin:'5px',}} src={cart} alt="" /><span style={{backgroundColor:'#FFFFFF'}}>Add to cart</span></button></div>
-                    <div style={{borderRadius:'20px',paddingTop:'10px',height:'40px',paddingBottom:'40px'}} align="center">
-                    <button   className='button30' style={{backgroundColor:'#F2C879',color:'black',}}><span >Buy Now</span></button></div>
-                    </div>
   
-                  
-                </div>
-               ))}
-
-               
-            </div>
-      </div>
-      </div>
+      <ProductCard />
       <Footer />
      <MediaFooter />
     </div>

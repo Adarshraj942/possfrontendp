@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './Login.css'
-import facebookicon from '../../assets/facebookicon.png'
-import googleicon from '../../assets/googleicon.png'
-import sign from '../../assets/sign.png'
+
 import flyingjat from '../../assets/flyingjat.png'
 import { Footer } from '../../components/Footer/Footer'
-import MobileFoot from '../../components/MobileFoot/MobileFoot'
+
 import MediaFooter from '../../components/Footer/MediaFooter'
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar'
 import { useEffect } from "react";
 import {  useNavigate } from 'react-router-dom';
-import { login, signUp } from "../../Api/AuthRequest";
+import { login } from "../../Api/AuthRequest";
 import {LoginSocialFacebook} from "reactjs-social-login"
 import {FacebookLoginButton} from "react-social-login-buttons"
 
@@ -61,7 +59,7 @@ const Login = () => {
     if (userInfo) {
     navigate("/");
     }
-  }, [history]);
+  }, [useNavigate]);
 
   const resetForm = () => {
     setConfirmPass(true);

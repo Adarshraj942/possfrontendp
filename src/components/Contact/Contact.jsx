@@ -1,9 +1,5 @@
 import React from 'react'
-import phone from '../../assets/phone.png'
-import location from '../../assets/location.png'
-import mail from '../../assets/mail.png'
-import instalink from '../../assets/instalink.png'
-import facebooklink from '../../assets/facebooklink.png'
+
 import contactusslide from '../../assets/contactusslide.png'
 import mediafoot from '../../assets/mediafoot.png'
 import secmediafoot from '../../assets/secmediafoot.png'
@@ -27,7 +23,7 @@ function Contact() {
   <div className="container" id='content700' >
         <div className="contact__wrapper shadow-lg mt-n9"   >
           <div className="row no-gutters" id='thim' >
-            <div className="col-lg-2  p-5 order-lg-2"  id='looloo' style={{ backgroundImage: `url(${contactusslide})` }}>
+            <div className="col-lg-2  p-4 order-lg-2"  id='looloo' style={{ backgroundImage: `url(${contactusslide})` }}>
               <h3 className="color--black mb-3">Contact US</h3>
               <h6 className="color--black mb-5">Fill the form our team will get back to you withing 24 hours.</h6>
               <ul className="contact-info__list list-style--none position-relative z-index-101">
@@ -42,7 +38,7 @@ function Contact() {
                   <br /> Marg DLF Phase 2,
                   <br /> Gurugram (Haryana) 122022
                   <div className="mt-3">
-                    <a href="https://www.google.com/maps" target="_blank" className="text-link link--right-icon" style={{color:'#F3CA6D'}}>Get directions <i className="link__icon fa fa-directions" /></a>
+                    <a href="/https://www.google.com/maps" target="_blank" className="text-link link--right-icon" style={{color:'#F3CA6D'}}>Get directions <i className="link__icon fa fa-directions" /></a>
                   </div>
                 </li>
               </ul>
@@ -50,7 +46,7 @@ function Contact() {
                 
               </figure>
             </div>
-            <div className="col-lg-7 contact-form__wrapper p-5 order-lg-1"  id='looloo'>
+            <div className="col-lg-7 contact-form__wrapper p-3 order-lg-1"  id='looloo'>
               <form action="#" className="contact-form form-validate" noValidate="novalidate" >
                 <div className="row" style={{backgroundColor:'white'}} >
                   <div className="col-sm-6 mb-3" style={{backgroundColor:'white'}}>

@@ -115,4 +115,17 @@
         display: inline;
         justify-content: center;
     }
+    .dogheader select{
+        font-size:15px;text-align:center;background-color:white;font-weight:800;border-color:white;border-radius:12px;padding:5px;outline:transparent;margin-left:20px;width:130px 
+    }
+}
+
+@media(max-width: 320px){ 
+    .inner img{
+height:200px;
+width: 200px;
+    }
+    .dogheader select{
+        font-size:15px;text-align:center;background-color:white;font-weight:650;border-color:white;border-radius:12px;padding:5px;outline:transparent;width:80px 
+    }
 }

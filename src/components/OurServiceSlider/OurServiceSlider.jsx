@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css"
 import video from '../../assets/video.png'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import './OurServiceSlider.css'
@@ -38,8 +38,8 @@ const OurServiceSlider = () => {
   return (
     <>
 
-  
-    <section style={{backgroundColor:'white',paddingBottom:'40px'}}>
+  <div id="OurServiceSliderr">
+<section style={{backgroundColor:'white',paddingBottom:'40px'}}>
       <div className='container-fluid' style={{padding:'40px 40px 40px 40px'}}  >
         <div  className='servicesheader'><h4>Our Services</h4> </div>
         <div align='center' className='servicesheader'><h2>Subtext here--</h2> </div>
@@ -135,6 +135,8 @@ const OurServiceSlider = () => {
         </div>
       </div>
       </section>
+     </div>
+    
     </>
 
   )

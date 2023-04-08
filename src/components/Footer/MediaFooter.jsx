@@ -9,19 +9,20 @@ function MediaFooter() {
    <div align='center'>
   <div className='row'>
   <p className="pt-5"  >
-                    <h5 style={{fontWeight:'bold'}}>Terms and Condition</h5>
-                      <h5 style={{fontWeight:'bold'}}>Privacy Policy</h5>
-                      <h5 style={{fontWeight:'bold'}}>Returns Policy</h5>
+  <a href="/TermCondition" style={{textDecoration:'none',color:'black'}}><h5 style={{fontWeight:'bold'}}>Terms and Condition</h5></a>
+                      <a href="/PrivacyPolicy" style={{textDecoration:'none',color:'black'}}><h5 style={{fontWeight:'bold'}}>Privacy Policy</h5></a>
+                      <a href="/ReturnPolicy" style={{textDecoration:'none',color:'black'}}><h5 style={{fontWeight:'bold'}}>Returns Policy</h5></a>
+
                       <h5 style={{fontWeight:'bold'}}>Shipping Policy</h5>
+                     
                    
                       <h5 style={{fontWeight:'bold'}}>Returns Centre</h5>
-                      <h5 style={{fontWeight:'bold'}}>Contact Us</h5>
+                     
   </p>
                     <p className="pt-2" >
+                    <h5  href="/Contact" style={{fontWeight:'bold'}}>Contact Us</h5>
+                      <h5  href="/AboutUs" style={{fontWeight:'bold'}}>About Us</h5>
                       
-                      <h5 style={{fontWeight:'bold'}}>Privacy Policy</h5>
-                      
-                      <h5 style={{fontWeight:'bold'}}>FAQs</h5>
                      
                    
    </p>

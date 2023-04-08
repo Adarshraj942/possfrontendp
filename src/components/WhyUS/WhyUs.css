@@ -5,10 +5,12 @@
     font-size: 50px;
     padding-top:40px ;
     padding-bottom:40px ;
+   
 }
 
 .divone{
   background-color:white;padding-left:40px;
+  width: 100%;
 }
 
 .subtext{
@@ -27,12 +29,13 @@ background-color: white !important;
 }
 
 .whitediv{
-   width:50%;background-color:white;
+   width:100%;background-color:white;
 }
 
 .videodiv{
 width:750px;
 display: block;
+padding: 40px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -54,14 +57,41 @@ display: block;
         background-color:white;padding-left:20px;
         padding-top: 40px;
         padding-bottom: 40px;
+        width: auto;
        
       }
 
       .whitediv{
         width:100%;background-color:white;
      }
-     .videodiv{
-        display: none;
-        }
 
+     .videodiv{
+        width:auto;
+        display: block;
+        padding: 20px;
+        }
+}
+
+@media(max-width: 320px){ 
+    .whitediv{
+        width:100%;background-color:white;
+     }
+     .divone{
+        background-color:white;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        width: auto;
+        padding: 20px;
+       
+      }
+      .subtext{
+        color:black;
+        font-size:20px ;
+        font-style: bolder;  
+    }
+    .videodiv{
+        width:auto;
+        display: block;
+        padding: 20px;
+        }
 }

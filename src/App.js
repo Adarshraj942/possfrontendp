@@ -7,7 +7,7 @@ import Signin from './pages/Signin/Signin'
 import Login from './pages/Login/Login';
 import ProductPage from './pages/ProductPage/ProductPage';
 import ProductPurchase from './pages/ProductPurchase/ProductPurchase'
-import InstantPurchase from './pages/InstantPurchase/InstantPurchase';
+
 
 import Multistepper from './pages/Multistepper/Multistepper';
 import Payment from './components/Payment/Payment';
@@ -30,6 +30,13 @@ import AboutUS from './pages/AboutUS/AboutUS'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermCondition from './pages/TermCondition/TermCondition';
 import ReturnPolicy from './pages/ReturnPolicy/ReturnPolicy'
+import Wishlist from './pages/Wishlist/Wishlist';
+import StoreOrder from './pages/StoreOrder/StoreOrder'
+import ShippingPolicy from './pages/ShippingPolicy/ShippingPolicy';
+import Diaries from './pages/Diaries/Diaries';
+import Blogpage from './pages/Blogpage/Blogpage';
+import Cancellation from './pages/Cancellation/Cancellation';
+import AllOrder from './pages/AllOrder/AllOrder';
 
 
 
@@ -62,12 +69,12 @@ function App() {
         
         <Route exact path = "/Signin" element = { < Signin /> } /> 
          <Route exact path = "/Login" element = { < Login /> }/ >
-        <Route exact path = "/ProductPage" element = { < ProductPage /> } /> 
+        <Route exact path = "/ProductPage/:id/:type" element = { < ProductPage /> } /> 
         
         <Route exact path = '/ProductPurchase/:id' element = { < ProductPurchase /> } /> 
         <Route exact path = '/InstantPurchase/:id' element = { < Multistepper /> } />
        
-         {/* <Route exact path = '/Multistepper' element = { < Multistepper /> } />  */}
+         <Route exact path = '/Multistepper' element = { < Multistepper /> } /> 
          <Route exact path = '/ProductPurchase' element = { < ProductPurchase /> } /> 
             
          <Route exact path = '/AboutUS' element = { < AboutUS /> } /> 
@@ -75,6 +82,13 @@ function App() {
          <Route exact path = '/PrivacyPolicy' element = { <PrivacyPolicy /> } />
         <Route exact path = '/TermCondition' element = { <TermCondition /> } />
         <Route exact path = '/ReturnPolicy' element = { <ReturnPolicy /> } />
+        <Route exact path = '/Wishlist' element = { <Wishlist /> } />
+        <Route exact path = '/StoreOrder' element = { <StoreOrder /> } />
+        <Route exact path = '/ShippingPolicy' element = { <ShippingPolicy /> } />
+        <Route exact path = '/Diaries' element = { <Diaries /> } />
+        <Route exact path = '/Blogpage' element = { <Blogpage /> } />
+        <Route exact path = '/Cancellation' element = { <Cancellation /> } />
+        <Route exact path = '/AllOrder' element = { <AllOrder /> } />
         
 
         
