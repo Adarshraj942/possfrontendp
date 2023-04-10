@@ -45,7 +45,7 @@ export default function DogCatogries() {
 
   const navigate = useNavigate();
   function handleProduct(data){
-    alert(data)
+    
     console.log(data);
     navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
   }

@@ -68,14 +68,14 @@ function Multistepper() {
     </div>
    
     <br />
-    <Button className='backbtn'
+    {/* <Button className='backbtn'
                        
                       
                         onClick={handleBack}
                         sx={{ mr: 1 }}
                     >
                         Back
-                    </Button>
+                    </Button> */}
     <Box align='center'  sx={{ width: "100%" ,height:'auto'}}>
         <Stepper   style={{justifyContent:'center',width:'50%'}}  sx={{ padding:'20px 20px' }} activeStep={activeStep}>
             <Step >
@@ -124,10 +124,10 @@ function Multistepper() {
                 }}>
                   
                     <div align='center'>
-                    <Button  className="onClickbtn" onClick={handleNext}>
+                    {/* <Button  className="onClickbtn" onClick={handleNext}>
                         {activeStep === steps.length - 1 ? 
                             "Finish" : "Next"}
-                    </Button> 
+                    </Button>  */}
                     </div>
                     
 

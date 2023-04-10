@@ -46,8 +46,10 @@ export default function CatCatogries() {
 
  
   const navigate = useNavigate();
-  function handleProduct(event){
-    navigate('/ProductPage');
+  function handleProduct(data){
+    
+    console.log(data);
+    navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
   }
 
 
@@ -99,7 +101,12 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc1}
-            onClick={handleProduct}
+            onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"FOOD"
+              })
+            }}
           />
         
           
@@ -111,7 +118,12 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc2}
-            onClick={handleProduct}
+            onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"ACCESSORIES"
+              })
+            }}
             
           />
           </Card>
@@ -122,7 +134,12 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc3}
-            onClick={handleProduct}
+            onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"HEALTH & HYGIENE"
+              })
+            }}
           />
         </Card>
         <div className='cardtitle'>Carriers</div>
@@ -132,7 +149,12 @@ export default function CatCatogries() {
           <CardMedia
             sx={{ height: '200px' }}
             image={catpc4}
-            onClick={handleProduct}
+            onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"TOY"
+              })
+            }}
           /> 
         </Card>
         <div className='cardtitle'>Toys</div>

@@ -38,8 +38,8 @@ export const Footer = () => {
                     
                       
                    
-                      <h5><a href="/DashBoard">Dashboard</a></h5>
-                      <h5><a href="/Account">My Account</a></h5>
+                      {/* <h5><a href="/DashBoard">Dashboard</a></h5>
+                      <h5><a href="/Account">My Account</a></h5> */}
                    
                     </p>
                     </div>

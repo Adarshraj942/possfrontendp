@@ -3,10 +3,12 @@ import slide1 from '../../assets/slide1.png'
 import slide2 from '../../assets/slide2.png'
 import slidethree from '../../assets/slidethree.png'
 import './ImageSlider.css'
+import { useNavigate } from 'react-router-dom'
 
 document.body.style = 'background: rgba(230, 235, 229, 1);'
 
 const ImageSlider = () => {
+  const navigate=useNavigate()
   return (
 
   <div className='container-fluid' id='imageslider'>
@@ -20,14 +22,20 @@ const ImageSlider = () => {
             <div className="carousel-item active">
                 <img className="d-block w-100"  src={slide1} alt="First slide" />
                 <div class="carousel-caption block w-100"   >
-                <button className='shopbtn2'> <a   href='#Delasblock' style={{color:'black',textDecoration:'none'}}> Book Now</a></button>
+                <button className='shopbtn2'> <a   
+                 onClick={()=>{
+                  navigate("/PurchaseItem")
+                }}
+                style={{color:'black',textDecoration:'none'}}> Book Now</a></button>
               </div>
           </div>
           <div className="carousel-item"  style={{width:'100%'}}>
             <img className="d-block w-100"   src={slide2} alt="Second slide" />
             <div class="carousel-caption" >
               <div className='container-fluid' style={{marginTop:'20px'}}>
-              <button className='shopbtn'> <a href='#priceContainer' style={{color:'black',textDecoration:'none'}}>Shop Now</a> </button>
+              <button className='shopbtn'  onClick={()=>{
+              navigate("/ProductPage/DOG/FOOD")
+            }}> <a  style={{color:'black',textDecoration:'none'}}>Shop Now</a> </button>
               </div>
             
         </div>
@@ -35,7 +43,11 @@ const ImageSlider = () => {
           <div className="carousel-item"  style={{width:'100%'}}>
             <img className="d-block w-100"   src={slidethree} alt="Third slide" />
             <div class="carousel-caption">
-            <button className='shopbtn2'> <a  href='#priceContainer' style={{color:'black',textDecoration:'none'}}> Book Now</a></button>
+            <button className='shopbtn2'> <a  
+            // href='#priceContainer'
+             style={{color:'black',textDecoration:'none'}} onClick={()=>{
+              navigate("/PurchaseItem")
+            }}> Book Now</a></button>
         </div>
           </div>
         </div>

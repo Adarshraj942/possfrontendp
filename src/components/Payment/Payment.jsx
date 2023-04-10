@@ -32,7 +32,7 @@ function Payment() {
                       <div>Rates</div>
                   </div>
                   <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
-                      <div>Shipping Charges</div>
+                      <div>Shipping Charges xxx</div>
                       <div>Rates</div>
                   </div>
                   <div >
