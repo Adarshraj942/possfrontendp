@@ -64,31 +64,60 @@ export default function CatCatogries() {
     <div style={{fontSize:'15px',backgroundColor:'white',fontWeight:'bold',borderRadius:'12px',padding:'5px',outline:'transparent',width:'130px',borderColor:'white',marginRight:'20px'}} className="dropdownbutton">
         <button className="dropbtn20"><img style={{height:'20px'}} src={icon} alt="" /></button>
         <div className="dropdown-content20">
-        <a href><img src={catone} alt="" />
-          <div>Accessories</div>
-          </a>
-          <a href><img src={cattwo } alt="" />
-          <div>Cat Litter</div>
-          </a>
-          <a href><img src={catthree } alt="" />
-          <div>Food & Treats</div>
-          </a>
-          <a href><img src={catfour} alt="" />
-          <div>Supplies</div>
-          </a>
-          <a href><img src={catseven} alt="" />
-          <div>Healthcare</div>
-          
-          </a>
+        <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >Food </a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TREAT"
+                })
+              }} >Treats</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TOY"
+                })
+              }} >Toys </a>
+                
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"APPARELS"
+                })
+              }} >Apparels</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }} >Accessories</a>
+               
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"MAT"
+                })
+              }} >Bed And Mats</a>
+                
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }} >Health and Hygiene</a>
         </div>
       </div>
    <span className='dogheader'>Cat
     <select  style={{fontSize:'15px',textAlign:'center',backgroundColor:'white',fontWeight:'800',borderColor:'white',borderRadius:'12px',padding:'5px',outline:'transparent',marginLeft:'20px',width:"130px"}} name="" id="">
-      <option value="">5 year</option>
-      <option value="">4 year</option>
-      <option value="">3 year</option>
-      <option value="">2 year</option>
-      <option value="">1 year</option>
+      <option value="">Upto 1 years</option>
+      <option value="">Upto 2 years</option>
+      <option value="">Upto 3 years</option>
+      <option value="">Upto 4 years</option>
+      <option value="">Above 5 years</option>
       </select></span></h4>
    </span>
       </div> 

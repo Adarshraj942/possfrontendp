@@ -12,7 +12,8 @@ import { useNavigate, useParams }  from 'react-router-dom';
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar';
 
 import MediaFooter from '../../components/Footer/MediaFooter';
-
+import { addToWishlist } from '../../Api/WishlistRoute';
+import swal from 'sweetalert';
 
 const ProductPage = () => {
   const params=useParams()
@@ -53,7 +54,7 @@ const ProductPage = () => {
         // ...
       }
       fetchData();
-    }, []); // Or [] if effect doesn't need props or state
+    }, [params]); // Or [] if effect doesn't need props or state
 
     const value = 3.5;
     const[users,setUsers]=useState([]);
@@ -102,6 +103,32 @@ return `https://drive.google.com/uc?id=${images[0]}`
 
 
 }
+
+const wishlist=async(data)=>{
+  if(userData && userInfo){
+   const ata={
+     productId:data._id,
+     userId:userData,
+     quantity:1,
+     name:data.name,
+     uploadImages:data.uploadImages,
+     price:data.price
+   }
+   const tata= await addToWishlist(ata)
+   if(tata){
+    swal("Added to Cart")
+    navigate("/storeCart")
+    
+   }
+  }else{
+   swal("Login first")
+   navigate('/login')
+  }
+  
+    
+ }
+
+
   return (
     <>
     <div>
@@ -123,15 +150,19 @@ return `https://drive.google.com/uc?id=${images[0]}`
        <option value="">TOY</option>
        <option value="">ACCESSORIES</option>
        <option value="">TREAT</option>
+       <option value="">BEDS & MAT</option>
+       <option value="">APPARELS</option>
+       <option value="">HEALTH & HYGIENE</option>
+
         </select></div>
       </div>
     </div>
 
     <div className='flexit2'>
     <div style={{display:'flex'}}>
-      <div style={{marginTop:'10px'}}><h6 >Sort by</h6></div>
+      <div style={{marginTop:'10px'}}><h6 >Sort By Price</h6></div>
       <div class='um'><select  className='selectbox' name="" id="">
-      <option value="">MIN TO MAX</option>
+      <option value="" >MIN TO MAX</option>
       <option value="">MAX TO MIN</option>
         </select></div>
       </div>
@@ -380,17 +411,19 @@ return `https://drive.google.com/uc?id=${images[0]}`
             products.map((ele) => (
               
                 <div  className='col-md-3'  id='kil'   >
-                <div  id="Productcard30" className='card'  onClick={()=>{
+                <div  id="Productcard30" className='card' >
+                    <div className='Productimg' style={{borderRadius:'20px'}} align="center"  onClick={()=>{
                       navigate(`/ProductPurchase/${ele._id}`)
-                    }} >
-                    <div className='Productimg' style={{borderRadius:'20px'}} align="center"><img src={src(ele.uploadImages)} alt=""  /></div>
+                    }} ><img src={src(ele.uploadImages)} alt=""  /></div>
                     
                     <div  style={{paddingTop:'20px'}} align="center" >
                         <b >{ele.name.slice(0,10)+'....'}</b>
                         <h6 style={{paddingTop:'10px',fontSize:'15px'}}><s>₹ {ele.maxPrice} </s>  - <b>  ₹{ele.price}</b> </h6>
                     </div>
                     <div style={{paddingTop:'10px',borderRadius:'20px'}} align="center">
-                    <button  onClick={handleProductPurchase} className='button30'><img style={{backgroundColor:'#FFFFFF',margin:'5px',}} src={ele.uploadImages} alt="" /><span style={{backgroundColor:'#FFFFFF'}}>Add to cart</span></button></div>
+                    <button   className='button30' onClick={()=>{
+                                wishlist(ele)
+                    }} ><img style={{backgroundColor:'#FFFFFF',margin:'5px',}} src={ele.uploadImages} alt="" /><span style={{backgroundColor:'#FFFFFF'}}>Add to cart</span></button></div>
                     <div style={{borderRadius:'20px',paddingTop:'10px',paddingBottom:'5px'}} align="center">
                     <button   className='button30' style={{backgroundColor:'#F2C879',color:'black'}} onClick={()=>{
                       navigate(`/InstantPurchase/${ele._id}`)

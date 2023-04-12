@@ -9,3 +9,6 @@ export  const editOrder=(data)=>API.post("/order/edit",data)
 export  const cancelOrder=(data)=>API.post("/order/cancel",data)
 
 export  const getOrder=(data)=>API.post("/order/all",data)
+
+
+export const getOrd=(data)=>API.get(`/order/getone/${data}`)

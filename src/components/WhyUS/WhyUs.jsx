@@ -17,7 +17,7 @@ function WhyUs() {
       
         <div className='whitediv'>
           <div style={{backgroundColor:'white'}}>
-            <h4 className='whyus' style={{backgroundColor:'white'}}>Why US</h4>
+            <h4 className='whyus' style={{backgroundColor:'white'}}>Why Us ?</h4>
           </div>
 
           <div className='divone'>

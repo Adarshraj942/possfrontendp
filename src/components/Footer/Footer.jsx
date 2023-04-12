@@ -3,9 +3,11 @@ import facebooklink from '../../assets/facebooklink.png'
 import instalink from '../../assets/instalink.png'
 import logo from '../../assets/logo.png'
 import './Footer.css'
+import { useNavigate } from 'react-router-dom'
 
 
 export const Footer = () => {
+  const navigate=useNavigate()
   return (
  <div className='container-fluid' id='desktop'>
      <div style={{marginTop:'10px',backgrounColor:'#F4F7EE'}}>
@@ -38,8 +40,10 @@ export const Footer = () => {
                     
                       
                    
-                      {/* <h5><a href="/DashBoard">Dashboard</a></h5>
-                      <h5><a href="/Account">My Account</a></h5> */}
+                      {/* <h5><a href="/DashBoard">Dashboard</a></h5> */}
+                      {/* <h5><a onClick={()=>{
+                        navigate("/Account")
+                      }}>My Account</a></h5> */}
                    
                     </p>
                     </div>
@@ -51,7 +55,12 @@ export const Footer = () => {
                       <div style={{marginTop:'50px',marginLeft:'200px',backgroundColor:"white"}} >
                         <img src={logo} alt="" />
                         <div><h4 style={{fontWeight:'bold',fontSize:'20px',paddingBottom:'20px',backgroundColor:"white"}}>Follow us</h4></div>
-                        <img src={facebooklink} alt="" /><span style={{margin:'10px'}}><img src={instalink} alt="" /></span></div>
+                    <a href='https://www.facebook.com/possbytherollinggroomers' target="_blank">    <img  src={facebooklink}  alt="" /></a> <span style={{margin:'10px'}} >
+                      
+                    <a href='https://www.instagram.com/possindia/' target="_blank"> 
+                      <img src={instalink}  alt="" />
+                      </a>
+                      </span></div>
                     </div>
                 </div>
               </div>

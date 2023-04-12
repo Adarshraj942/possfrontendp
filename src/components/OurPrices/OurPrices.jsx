@@ -18,7 +18,7 @@ function OurPrices() {
 <>
 <div className='container-fluid' id='priceContainer' >
   <div  className='Pricesheader'><h4> Our Services</h4> </div>
-  <div align='center'  className='subtextheader'><h2>Subtext---</h2> </div>
+
    <div align='center'  className='row' id='pricerow' >
       <div className="col" id='col1'  >
       <div className='card lg-shadow' id='cardPrice'>
@@ -55,6 +55,8 @@ function OurPrices() {
         </div>
         <div align="center" ><div> <button onClick={handlebook} className='booknowbtn' style={{marginTop:'45px'}} >Book now</button> </div></div> 
       </div>
+
+      
        
         
       </div>

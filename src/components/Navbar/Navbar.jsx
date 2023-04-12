@@ -2,8 +2,10 @@ import React from 'react'
 import user from '../../assets/user.png'
 import shopingcart from '../../assets/shopingcart.png'
 import logo from '../../assets/logo.png'
+import posslogogif from "../../assets/posslogogif.gif"
 import { useNavigate }  from 'react-router-dom';
 import './Navbar.css'
+import swal from 'sweetalert'
 
 
 
@@ -15,9 +17,13 @@ function Navbar() {
     navigate('/Signin');
   }
 
- 
+ const userInfo=localStorage.getItem("userInfo")
 
- 
+ function handleProduct(data){
+  
+  console.log(data);
+  navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
+}
   function handleLogin(event){
     navigate('/Login');
   }
@@ -25,9 +31,15 @@ function Navbar() {
     <div className='desktopnavbar' style={{margin:'10px'}}>
     
       <nav id='navbar' className="navbar navbar-expand-lg navbar-light"  >
-        <a    className="navbar-brand" href='/' ><img src={logo} onClick={()=>{
-          navigate("/")
-        }} alt="" /></a>
+        <a    className="navbar-brand"  >
+    <>
+   <img onClick={()=>{
+    navigate("/")
+   }} src={posslogogif } style={{width:"90px",height:'80px'}} alt="" />
+    </>
+
+        </a>
+   
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
@@ -38,16 +50,51 @@ function Navbar() {
                 Dogs
               </a>
               <div className="dropdown-menu"  aria-labelledby="navbarDropdown">
-                <a href='/Food' className="dropdown-item" >Food</a>
-                <a className="dropdown-item" href='/Treats' >Treats</a>
-                <a className="dropdown-item" href='/Toys' >Toys </a>
-                <a className="dropdown-item" href='/Treats' >Treats</a>
-                <a className="dropdown-item" href='/Apparels' >Apparels</a>
-                <a className="dropdown-item" href='/Accessories' >Accessories</a>
-                <a className="dropdown-item" href='/Medicine' >Medicine </a>
-                <a className="dropdown-item" href='/BedAndMats' >Bed And Mats</a>
-                <a className="dropdown-item" href='/Gromming' >Gromming </a>
-                <a className="dropdown-item" href='/HealthandHygiene' >Health and Hygiene</a>
+                <a  className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>Food</a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TREAT"
+                })
+              }} >Treats</a>
+                <a className="dropdown-item"  onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TOY"
+                })
+              }} >Toys </a>
+               
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"APPARELS"
+                })
+              }}  >Apparels</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }}>Accessories</a>
+               
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"MAT"
+                })
+              }}  >Bed And Mats</a>
+            
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }} >Health and Hygiene</a>
               
                 
               </div>
@@ -57,16 +104,51 @@ function Navbar() {
                 Cats
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item"  href='/CatFood' >Food </a>
-                <a className="dropdown-item"  href='/CatTreats' >Treats</a>
-                <a className="dropdown-item"  href='/CatToys' >Toys </a>
+              <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >Food </a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TREAT"
+                })
+              }} >Treats</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TOY"
+                })
+              }} >Toys </a>
                 
-                <a className="dropdown-item"  href='/CatApparels' >Apparels</a>
-                <a className="dropdown-item"  href='/CatAccessories' >Accessories</a>
-                <a className="dropdown-item"  href='/CatMedicine' >Medicine </a>
-                <a className="dropdown-item"  href='/BedAndMats' >Bed And Mats</a>
-                <a className="dropdown-item"  href='/CatGromming' >Gromming </a>
-                <a className="dropdown-item"  href='/CatHealthandHygiene' >Health and Hygiene</a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"APPARELS"
+                })
+              }} >Apparels</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }} >Accessories</a>
+               
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"MAT"
+                })
+              }} >Bed And Mats</a>
+                
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }} >Health and Hygiene</a>
                
               
               </div>
@@ -76,16 +158,48 @@ function Navbar() {
                 Other Animals
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href='/' >Food </a>
-                <a className="dropdown-item" href='/' >Treats</a>
-                <a className="dropdown-item" href='/' >Toys </a>
+              <a className="dropdown-item"     onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"BIRD",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>BIRD </a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"TURTLE",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >TURTLE</a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"FISH",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >FISH </a>
                 
-                <a className="dropdown-item" href='/' >Apparels</a>
-                <a className="dropdown-item" href='/' >Accessories</a>
-                <a className="dropdown-item" href='/' >Medicine </a>
-                <a className="dropdown-item" href='/' >Bed And Mats</a>
-                <a className="dropdown-item" href='/' >Gromming </a>
-                <a className="dropdown-item" href='/' >Health and Hygiene</a>
+                <a className="dropdown-item" 
+                  onClick={()=>{
+                    handleProduct({
+                      "petCategoryy":"GUINEA PIG",
+                      "typeCatagoryy":"FOOD"
+                    })
+                  }}
+                >GUINEA PIG</a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"HAMSTER",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >HAMSTER</a>
+                <a className="dropdown-item" 
+                  onClick={()=>{
+                    handleProduct({
+                      "petCategoryy":"RABBIT",
+                      "typeCatagoryy":"FOOD"
+                    })
+                  }}
+                >RABBIT </a>
+               
                
               
               </div>
@@ -94,14 +208,14 @@ function Navbar() {
               <a  id="navlinka" className="nav-link active" href="/AboutUS">About US</a>
             </li> */}
             <li   className="nav-item">
-              <a  id="navlinka" className="nav-link active" href="/"
+              <a  id="navlinka" className="nav-link active" href="/#priceContainer"
               
-              onClick = {(e)=>{
-                e.preventDefault();
-                window.scrollTo({
-                top: document.querySelector("#OurServiceSlider").offsetTop,
-                behavior: "smooth",
-             });}}
+            //   onClick = {(e)=>{
+            //     e.preventDefault();
+            //     window.scrollTo({
+            //     top: document.querySelector("#OurServiceSlider").offsetTop,
+            //     behavior: "smooth",
+            //  });}}
               >Our Services</a>
             </li>
             {/* <li   className="nav-item">
@@ -118,8 +232,8 @@ function Navbar() {
           </form>
           <ul  className='liskmin'>
           <li   className="nav-item">
-              <a href='/' id="navlinka" className="nav-link active" > <img onClick={()=>{
-                navigate("/cart")
+              <a  id="navlinka" className="nav-link active" > <img onClick={()=>{
+                navigate("/storeCart")
               }} src={shopingcart} style={{width:"20px"}} alt="" /></a>
             </li>
            
@@ -128,9 +242,24 @@ function Navbar() {
               <img src={user} alt="" />
               </a>
               <div className="dropdown-menu" style={{marginLeft:'-80px'}} aria-labelledby="navbarDropdown">
-              <a href='/' className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={handleClick}> Sign Up </button> </a>
-                <a href='/' className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}}  onClick={handleLogin} >Login</button> </a>
+            {userInfo ? <>
+              <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={()=>{
+             
+              navigate("/Account")
+            }}> MY ACCOUNT </button> </a>
+            
+               <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={()=>{
+              swal("Do You Want To Logout")
+              
+              localStorage.removeItem("userInfo")
+              localStorage.removeItem("userId")
+              navigate("/")
+            }}> LOGOUT </button> </a></>
+             : <>
+            <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={handleClick}> Sign Up </button> </a>
+                <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}}  onClick={handleLogin} >Login</button> </a>
 
+            </>}
               </div>
             </li>
            

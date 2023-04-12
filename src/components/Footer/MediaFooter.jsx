@@ -20,8 +20,8 @@ function MediaFooter() {
                      
   </p>
                     <p className="pt-2" >
-                    <h5  href="/Contact" style={{fontWeight:'bold'}}>Contact Us</h5>
-                      <h5  href="/AboutUs" style={{fontWeight:'bold'}}>About Us</h5>
+                    {/* <h5  href="/Contact" style={{fontWeight:'bold'}}>Contact Us</h5>
+                      <h5  href="/AboutUs" style={{fontWeight:'bold'}}>About Us</h5> */}
                       
                      
                    

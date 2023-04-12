@@ -11,17 +11,17 @@ const ImageSlider = () => {
   const navigate=useNavigate()
   return (
 
-  <div className='container-fluid' id='imageslider'>
+  <div className='container-fluid' id='imageslider' >
      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" style={{borderRadius:'20px'}} >
         <ol className="carousel-indicators" style={{width:'0px'}}>
           <li data-target="#carouselExampleIndicators" data-slide-to={0} className="active" />
           <li data-target="#carouselExampleIndicators" data-slide-to={1} />
           <li data-target="#carouselExampleIndicators" data-slide-to={2} />
         </ol>
-          <div className="carousel-inner" style={{width:'100%'}}>
+          <div className="carousel-inner" >
             <div className="carousel-item active">
-                <img className="d-block w-100"  src={slide1} alt="First slide" />
-                <div class="carousel-caption block w-100"   >
+                <img className="d-block w-100  "  src={slide1} alt="First slide" />
+                <div class="carousel-caption block w-100 "   >
                 <button className='shopbtn2'> <a   
                  onClick={()=>{
                   navigate("/PurchaseItem")

@@ -45,7 +45,7 @@ const PageOne = () => {
   const [visible, setVisible] = useState(true);
   const [color,setColor]=useState("white")
   const [token,setToken]=useState()
-  const [estimate,setEstimate]=useState()
+  const [estimate,setEstimate]=useState("24-48 hr")
   const [shippingCost,setShippingCost]=useState(100)
   const [address, setAddress] =React.useState({
     firstName:"",
@@ -134,6 +134,8 @@ setimages(arrz)
      const ata={
        productId:post._id,
        userId:userData,
+       name:post.name,
+       uploadImages:post.uploadImages,
        quantity:1,
        price:post.price,
        deliveryAddress:{
@@ -212,7 +214,11 @@ setEstimate(response)
           <div className='mediacarf'  align='center'>
           <div className='card' id='cardfor'>
            <div style={{display:'inline'}}>
-           <div align='center'><img src={product} alt="" /></div>
+           <div align='center'><img src={
+                            images.length>0 ?
+                            
+                            
+                            "https://drive.google.com/uc?id="+ images[1]:"no image"} style={{width:"15rem"}} alt="" /></div>
         
            
            </div>
@@ -220,15 +226,15 @@ setEstimate(response)
                         <hr />
                       <div className='container-fluid'>
                 <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
-                      <div>price Subtotal :</div>
-                      <div>Rates</div>
+                      <div>price Subtotal : </div>
+                      <div> ₹ {post.price}</div>
                   </div>
                   <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
                       <div>Shipping Charges</div>
-                      <div>Rates</div>
+                      <div> ₹ {shippingCost}</div>
                   </div>
                   <div >
-                      <div align='center'><button className='totalbutton'>Total Amount :  5.42</button></div>
+                      <div align='center'><button className='totalbutton'>Total Amount :   ₹ {post.price + shippingCost}</button></div>
                       
                   </div>
                 </div>
@@ -391,8 +397,8 @@ setEstimate(response)
                   }
                  
                 }
-                } style={{marginLeft:"-30rem"}} ><button className='paybtn2'> <span style={{marginRight:'10px'}}>
-             <img style={{width:"2rem",height:"2rem",marginTop:"-3px"}} src="https://thumbs.dreamstime.com/b/ecommerce-icon-elegant-yellow-round-button-ecommerce-icon-isolated-elegant-yellow-round-button-abstract-illustration-105993111.jpg" alt="noimage"  />
+                } style={{marginLeft:""}} ><button className='paybtn2'> <span style={{marginRight:'10px'}}>
+           
               </span> Checkout</button></div>
       <div className='flex-container' id='purdisplay'>
         
@@ -462,7 +468,7 @@ setEstimate(response)
                 </div> 
                 <div>
                     <button className='priceComplete' onClick={()=>{
-                      navigate("/AllOrder")
+                      navigate("/StoreOrder")
                       closeModal()
                       
                     }}> <b>My orders</b> </button>
@@ -497,20 +503,24 @@ setEstimate(response)
                 
                 <div align='center' className='container'>
                 <div id='cardbig'>
-                      <div><img src={product} alt="" /></div>
+                      <div><img src={
+                            images.length>0 ?
+                            
+                            
+                            "https://drive.google.com/uc?id="+ images[1]:"no image"} style={{width:"15rem"}} alt="" /></div>
                       <div>
                         <hr />
                       <div className='container'>
                 <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
                       <div>price Subtotal :</div>
-                      <div>Rates</div>
+                      <div> ₹ {post.price}</div>
                   </div>
                   <div style={{display:'flex',margin:'20px',justifyContent:'space-between'}}>
-                      <div>Shipping Charges xxx</div>
-                      <div> </div>
+                      <div>Shipping Charges </div>
+                      <div> ₹ {shippingCost} </div>
                   </div>
                   <div >
-                      <div align='center'><button className='totalbutton'>Total Amount : ₹5.42</button></div>
+                      <div align='center'><button className='totalbutton'>Total Amount : ₹ {post.price + shippingCost} </button></div>
                       
                   </div>
                 </div>

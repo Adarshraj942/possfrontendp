@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Tab } from "@headlessui/react";
 
 import './PurchaseItem.css'
-
+import swal from 'sweetalert';
 import {Footer } from '../../components/Footer/Footer'
 import { useNavigate} from "react-router-dom";
 
 import back from '../../assets/back.png'
 import MediaFooter from '../../components/Footer/MediaFooter';
 import MediaNavbar from '../../components/MediaNavbar/MediaNavbar';
+import { createBooking } from '../../Api/BookingRequest';
 
 
 function PurchaseItem() {
@@ -27,11 +28,94 @@ function PurchaseItem() {
     
     };
   
+
+    const userData =localStorage.getItem("userId")
+    const userInfo =localStorage.getItem("userInfo")
+  
+    const [address, setAddress] =React.useState({
+      firstName:"",
+  
+      email: "",
+  
+      lastName: "",
+      mobile:"",
+     bookingType:"PETS BATHING",
+     state:"KERALA",
+     city:"KONGAD",
+     zip:"",
+     Daddress:""
+      
+  
+    });
+  const navigate=useNavigate()
+  
+    const book=async(e)=>{
+      e.preventDefault();
+     
+      if(userData && userInfo){
+       const ata={
+        
+            firstName:address.firstName,
+            lastName:address.lastName,
+            mobile:address.mobile,
+            email:address.email,
+            bookingType:address.bookingType,
+            state:address.state,
+            city:address.city,
+            Daddress:address.Daddress,
+            zip:address.zip
+  
+            
+        
+       }
+       console.log(ata);
+       const tata= await createBooking(ata)
+       if(tata){
+      
+        // swal("Thank you for reaching out, We will get back to you Shortly !")
+
+        swal({
+          title: "Hurry!",
+          text: "Thank you for reaching out, We will get back to you Shortly !",
+          type: "success",
+          Background: "#F9C058"
+        });
+        navigate('/ContactUs')
+        reset()
+       }
+      }else{
+       swal("Login first")
+       navigate('/signin')
+      }
+    
+        
+     }
+     const handleChange = (e) => {
+      setAddress({ ...address, [e.target.name]: e.target.value });
+    };
+    const reset=()=>{
+      setAddress({
+        firstName:"",
+  
+        email: "",
+    
+        lastName: "",
+        mobile:"",
+       bookingType:"PETS BATHING",
+       state:"KERALA",
+       city:"KONGAD",
+       zip:"",
+       Daddress:""
+
+        
+    
+      })
+    }
  
     const handelTabCLick = (e) => {
       setTabSelected(e);
     };
-    let navigate = useNavigate();
+  
   
     // const [imageUri, setImageUri] = useState(paytm);
   return (
@@ -86,29 +170,29 @@ function PurchaseItem() {
                     <div >
                     <div >
                     <div align='center'>
-                    <form action="">
+                    <form action="" onSubmit={book}>
           <div className='poi'>
           <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">First Name</label></div>
-              <div><input className='nameinput2' type="text" /></div>
+              <div><input className='nameinput2' required type="text" onChange={handleChange} name='firstName' value={address.firstName}/></div>
         </div>
         <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">Last</label></div>
-              <div><input className='nameinput2' type="text" /></div>
+              <div><input className='nameinput2' required onChange={handleChange} name='lastName' value={address.lastName} type="text" /></div>
         </div>
           </div>
        
         <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">Mobile number</label></div>
-              <div><input className='Mobiinput' type="text" /></div>
+              <div><input className='Mobiinput' required type="text" onChange={handleChange} name='mobile' value={address.mobile} /></div>
         </div>
         <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">Email</label></div>
-              <div><input className='Mobiinput' type="text" /></div>
+              <div><input className='Mobiinput' required type="email"  onChange={handleChange} name='email' value={address.email}/></div>
         </div>
         <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">Address</label></div>
-              <div><input className='Mobiinput' type="text" /></div>
+              <div><input className='Mobiinput'  required type="text"  onChange={handleChange} name='Daddress' value={address.Daddress}/></div>
         </div>
         <div>
           <div>
@@ -119,10 +203,10 @@ function PurchaseItem() {
       <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">State</label></div>
               <div>
-              <select className='nameinput2' name="" id="">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+              <select className='nameinput2' onChange={handleChange} name='state' id="">
+                <option value="KERALA">KERALA</option>
+                <option value="TAMIL NADU">TAMIL NADU</option>
+                <option value=" KARNATAKA"> KARNATAKA</option>
               </select>
               
               </div>
@@ -132,10 +216,10 @@ function PurchaseItem() {
           <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">City</label></div>
               <div>
-              <select className='nameinput2' name="" id="">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+              <select className='nameinput2'onChange={handleChange} name='city'id="">
+                <option value="KONGAD">KONGAD</option>
+                <option value="KADAMPAZHIPURAM">KADAMPAZHIPURAM</option>
+                <option value="PALAKKAD">PALAKKAD</option>
               </select>
               </div>
         </div> 
@@ -146,21 +230,35 @@ function PurchaseItem() {
           
       </div>
 
+      <div>
+          <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
+              <div align='left'><label htmlFor="">Booking for </label></div>
+              <div>
+              <select className='nameinput2'onChange={handleChange} name="bookingType" id="">
+                <option value="PETS BATHING">PETS BATHING</option>
+                <option value="FULL GROOMING">FULL GROOMING</option>
+                <option value="MEDICATED BATH">MEDICATED BATH</option>
+                <option value="DOG BOARDING">DOG BOARDING</option>
+              </select>
+              </div>
+        </div> 
+        </div>
+
       <div style={{justifyContent:'left',display:'table',marginTop:'15px'}} className='flexlom'>
               <div align='left'><label htmlFor="">Zip</label></div>
-              <div><input className='Mobiinput' type="text" /></div>
+              <div><input className='Mobiinput' required type="text" onChange={handleChange} name='zip' value={address.zip}/></div>
         </div> 
         </div>
           </div>
         </div>
       
-          
-        
-        </form>
         <div >
                 <button className='paybtn2' id='paybtn2'> <span style={{marginRight:'15px'}}><i class="fa fa-reply" aria-hidden="true"></i></span>Request Callback</button>
 
                 </div>
+        
+        </form>
+      
                     </div>
                     </div>
                   
@@ -178,19 +276,44 @@ function PurchaseItem() {
                       <div   id='container2' className='container-fluid' >
                         <div className='flexcontent' id='cardh'>
                           <div align='center' className='flecxLeft' id='line'>
-                          <div className='card' id='carddate'>
-                            <div><h5 align='left'>Date</h5></div>
-                            <div><h6 align='left'>Shipping Charge Fixed 00.0</h6></div>
-                          </div>
+                        
                           </div>
                           <div className='flexcright' id='cardq' >
                             <div align='center'>
                             <div className='card' id='carddate'>
                               <div align='center' >
-                                  <div><h5 align='left'>Time</h5></div>
+                                  <div><h5 align='center'>Time</h5></div>
+
+                                  <select className='nameinput2' name="" id="">
+
+                                    <option value="">9:00 Am - 9:30 AM </option>
+                                    <option value="">9:30 Am - 10:00 AM </option>
+                                    <option value="">10:00 Am - 10:30 AM </option>
+                                    <option value="">10:30 Am - 11:00 AM </option>
+                                    <option value="">11:00 Am - 11:30 AM </option>
+                                    <option value="">11:30 Am - 12:00 PM </option>
+                                    <option value="">12:00 Pm - 12:30 PM </option>
+                                    <option value="">12:30 Pm - 1:00 PM </option>
+                                    <option value="">1:00 Pm - 1:30 PM </option>
+                                    <option value="">1:30 Pm - 2:00 PM </option>
+                                    <option value="">2:30 Pm - 3:00 PM </option>
+                                    <option value="">3:00 Pm - 3:30 PM </option>
+                                    <option value="">3:30 Pm - 4:00 PM </option>
+                                    <option value="">4:00 Pm - 4:30 PM </option>
+                                    <option value="">4:30 Pm - 5:00 PM </option>
+                                    <option value="">5:00 Pm - 5:30 PM </option>
+                                    <option value="">5:30 Pm - 6:00 PM </option>
+                                    <option value="">6:00 Pm - 6:30 PM </option>
+                                    <option value="">6:30 Pm - 7:00 PM </option>
+                                    <option value="">7:00 Pm - 7:30 PM </option>
+                                    <option value="">7:30 Pm - 8:00 PM </option>
+                                    <option value="">8:00 Pm - 8:30 PM </option>
+                                    <option value="">8:30 Pm - 9:00 PM </option>
+                                    <option value="">9:00 Pm - 9:30 PM </option>
+                                    <option value="">9:30 Pm - 10:00 PM </option>
+
+                                  </select>
                                   <div align='left' >
-                                                                
-                              <input  className='boxpi'  style={{borderColor:'transparent',outlineColor:'transparent'}} type="text" name="timerange" value=" 9am- 10am" />
                               </div>
                               </div>
 

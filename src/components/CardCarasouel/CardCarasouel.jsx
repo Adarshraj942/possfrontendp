@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Swiper,SwiperSlide} from 'swiper/react'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import { getBlogs } from '../../Api/blogRequest';
 import {EffectCoverflow,Pagination,Navigation} from 'swiper'
 import video from '../../assets/video.png'
 import Card from '@mui/material/Card';
@@ -17,10 +17,26 @@ import './CardCarasouel.css'
 import { useNavigate } from 'react-router-dom';
 
 function CardCarasouel() {
+  const [blogs,setBlogs]=useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+    
+      const {data}=await getBlogs()
+     setBlogs(data)
+      console.log(data);
+      // ...
+    }
+    fetchData();
+  }, []); // Or [] if effect doesn't need props or state
   
+
+    function handleblogpage(event){
+      navigate('/Blogpage');
+    }
   const navigate = useNavigate();
-  function handleblogpage(event){
-    navigate('/Blogpage');
+  function handleblogpage(data){
+    navigate(`/Blogpage/${data}`);
   }
 
   return (
@@ -58,87 +74,35 @@ function CardCarasouel() {
          modules={[EffectCoverflow, Pagination, Navigation]}
        
         >
-        
-          <SwiperSlide sx={{}}>
+       {blogs &&  blogs.map((ele)=>(
+         
+         <SwiperSlide sx={{}}>
           
-            <div>
-            <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
-              <CardMedia
-                sx={{ height: 250,borderRadius:'20.1355px;'  }}
-                image={video}
-
-              />
-              <CardContent className='Cardcontent' >
-                <Typography  align="center" gutterBottom variant="h5" component="div"  style={{color:'rgba(56, 43, 40, 1)',fontWeight:'bold',fontSize:'25px'}}>
-                Door to Door Service 
-                </Typography>
-                <Typography variant="body2" className='cardcolor' sx={{fontSize:'14px'}} >
-                Working Day and Night and Have no Energy to Get your 
-                Dog to the nearest Grooming Station? No Worries, The
-                Rolling Groomers is here to Provide you with the 
-                hassle-free Grooming Experience without you even 
-                getting worried about the transportation.
-                </Typography>
-                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button onClick={handleblogpage} >Read more</button></div>
-              </CardContent>
-
-              
-            </Card>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-       
-            <div>
-            <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
+         <div>
+         <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
               <CardMedia
                 sx={{ height: 250,borderRadius:'20.1355px;' , }}
-                image={video}
+                image={ele.image}
 
               />
-              <CardContent className='Cardcontent' >
+                <CardContent className='Cardcontent' >
                 <Typography  align="center" gutterBottom variant="h5" component="div"  style={{color:'rgba(56, 43, 40, 1)',fontWeight:'bold',fontSize:'25px'}}>
-                Door to Door Service 
+                {ele.title}
                 </Typography>
                 <Typography variant="body2" className='cardcolor' sx={{fontSize:'14px'}} >
-                Working Day and Night and Have no Energy to Get your 
-                Dog to the nearest Grooming Station? No Worries, The
-                Rolling Groomers is here to Provide you with the 
-                hassle-free Grooming Experience without you even 
-                getting worried about the transportation.
+          {ele.desc}
                 </Typography>
-                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button >Read more</button></div>
-              </CardContent>
-
-              
-            </Card>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            
-            <div>
-            <Card class='Slidercard'  align="center" sx={{ borderRadius:'20.1355px' }}>
-              <CardMedia
-                sx={{ height: 250,borderRadius:'20.1355px;' , }}
-                image={video}
-
-              />
-              <CardContent className='Cardcontent' >
-                <Typography  align="center" gutterBottom variant="h5" component="div"  style={{color:'rgba(56, 43, 40, 1)',fontWeight:'bold',fontSize:'25px'}}>
-                Door to Door Service 
-                </Typography>
-                <Typography variant="body2" className='cardcolor' sx={{fontSize:'14px'}} >
-                Working Day and Night and Have no Energy to Get your 
-                Dog to the nearest Grooming Station? No Worries, The
-                Rolling Groomers is here to Provide you with the 
-                hassle-free Grooming Experience without you even 
-                getting worried about the transportation.
-                </Typography>
-                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button >Read more</button></div>
+                <div align="center" className='Learnmore' style={{paddingTop:'20px'}}><button onClick={()=>{
+                  handleblogpage(ele._id)
+                }} >Read more</button></div>
               </CardContent>
               
             </Card>
-            </div>
-          </SwiperSlide>
+         </div>
+       </SwiperSlide>
+       ))}
+          
+     
         
           <div className="slider-controler" >
         

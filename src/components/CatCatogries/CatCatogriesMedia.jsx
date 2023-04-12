@@ -25,8 +25,10 @@ import catseven from '../../assets/catseven.png'
 function CatCatogriesMedia() {
 
   const navigate = useNavigate();
-  function handleProduct(event) {
-    navigate('/ProductPage');
+  function handleProduct(data){
+    
+    console.log(data);
+    navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
   }
   return (
     <div className='Mediacontainer'>
@@ -37,31 +39,60 @@ function CatCatogriesMedia() {
     <div  className="dropdownbutton">
         <button className="dropbtn20"><img style={{height:'20px'}} src={icon} alt="" /></button>
         <div className="dropdown-content20" >
-        <a href="/" ><img src={catone} alt="" />
-          <div>Accessories</div>
-          </a>
-          <a href="/"><img src={cattwo } alt="" />
-          <div>Cat Litter</div>
-          </a>
-          <a href="/"><img src={catthree } alt="" />
-          <div>Food & Treats</div>
-          </a>
-          <a href="/"><img src={catfour} alt="" />
-          <div>Supplies</div>
-          </a>
-          <a href="/"><img src={catseven} alt="" />
-          <div>Healthcare</div>
-          
-          </a>
+        <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >Food </a>
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TREAT"
+                })
+              }} >Treats</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TOY"
+                })
+              }} >Toys </a>
+                
+                <a className="dropdown-item"   onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"APPARELS"
+                })
+              }} >Apparels</a>
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }} >Accessories</a>
+               
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"MAT"
+                })
+              }} >Bed And Mats</a>
+                
+                <a className="dropdown-item"    onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }} >Health and Hygiene</a>
         </div>
       </div>
    <span className='dogheader'>Cat
     <select  name="" id="">
-      <option value="">5 year</option>
-      <option value="">4 year</option>
-      <option value="">3 year</option>
-      <option value="">2 year</option>
-      <option value="">1 year</option>
+    <option value="" className="dropdown-item">Upto 1 years</option>
+    <option value="">Upto 2 years</option>
+      <option value="">Upto 3 years</option>
+      <option value="">Upto 4 years</option>
+      <option value="">Above 5 years</option>
       </select></span></h4>
    </span>
       </div> 
@@ -103,27 +134,50 @@ function CatCatogriesMedia() {
         
           <SwiperSlide >
           <div className='inner'>
-          <img onClick={handleProduct}  src={catpc1} alt="" />
+          <img 
+             onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"FOOD"
+              })
+            }}
+          src={catpc1} alt="" />
           <div className='cardtitle'>Food</div>
           </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='inner'>
-            <img onClick={handleProduct}  src={catpc2} alt="" />
+            <img  onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"ACCESSORIES"
+              })
+            }}
+              src={catpc2} alt="" />
           <div className='cardtitle'>Litter</div>
             </div>
           
           </SwiperSlide>
           <SwiperSlide>
             <div className='inner'>
-            <img onClick={handleProduct}  src={catpc3} alt="" />
+            <img    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"HEALTH & HYGIENE"
+              })
+            }}  src={catpc3} alt="" />
             <div className='cardtitle'>Carriers</div>
             </div>
            
           </SwiperSlide>
           <SwiperSlide>
             <div className='inner'>
-            <img onClick={handleProduct}  src={catpc4} alt="" />
+            <img  onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"TOY"
+              })
+            }}  src={catpc4} alt="" />
           <div className='cardtitle'>Toys</div>
             </div>
           

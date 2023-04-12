@@ -37,7 +37,8 @@ import Diaries from './pages/Diaries/Diaries';
 import Blogpage from './pages/Blogpage/Blogpage';
 import Cancellation from './pages/Cancellation/Cancellation';
 import AllOrder from './pages/AllOrder/AllOrder';
-
+import Invoice from './components/Invoice/Invoice';
+import AdminLogin from './pages/AdminLogin/AdminLogin';
 
 
 
@@ -53,7 +54,14 @@ function App() {
         <Route exact path = '/AllCategory' element = { < AllCategory /> }/ > 
         <Route exact path = '/Returns' element = { < Returns /> }/ >
         <Route exact path = '/PurchaseItem' element = { < PurchaseItem /> }/ > 
-        <Route exact path = '/Cart' element = { < Cart /> } /> 
+       
+        <Route exact path = '/orderInvoice/:id' element = { <Invoice/> }/ > 
+
+        
+        <Route exact path = '/Adminlogin' element = { <AdminLogin/> }/ > 
+       
+       
+ 
        
         <Route  path = '/Contact' element = { < Contact /> } /> 
         <Route  path = '/ParentCatogry' element = { < ParentCatogry /> } /> 
@@ -82,11 +90,11 @@ function App() {
          <Route exact path = '/PrivacyPolicy' element = { <PrivacyPolicy /> } />
         <Route exact path = '/TermCondition' element = { <TermCondition /> } />
         <Route exact path = '/ReturnPolicy' element = { <ReturnPolicy /> } />
-        <Route exact path = '/Wishlist' element = { <Wishlist /> } />
+        <Route exact path = '/storeCart' element = { <Wishlist /> } />
         <Route exact path = '/StoreOrder' element = { <StoreOrder /> } />
         <Route exact path = '/ShippingPolicy' element = { <ShippingPolicy /> } />
         <Route exact path = '/Diaries' element = { <Diaries /> } />
-        <Route exact path = '/Blogpage' element = { <Blogpage /> } />
+        <Route exact path = '/Blogpage/:id' element = { <Blogpage /> } />
         <Route exact path = '/Cancellation' element = { <Cancellation /> } />
         <Route exact path = '/AllOrder' element = { <AllOrder /> } />
         

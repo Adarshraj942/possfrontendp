@@ -13,10 +13,10 @@ function Sidebar() {
    
     <a href="/AllCategory">All Catogory's</a>
     <a href="/AllOrder">All Orders</a>
-    <a href="/Cart">All Cart(Not Order)</a>
+  
      <a href="/Returns">Returns</a>
     <a href="/Cancellation">Cancellation</a>
-    <a href="/Contact">Contact</a>
+   
     <a href="/Diaries">Diaries</a>
   </div>
   

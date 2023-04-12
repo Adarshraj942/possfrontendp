@@ -2,15 +2,24 @@ import React ,{useState} from 'react'
 
 import './MediaNavbar.css'
 
-import logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom'
+import posslogogif from '../../assets/posslogogif.gif'
+import { Link, useNavigate } from 'react-router-dom'
 import shopingcart from '../../assets/shopingcart.png'
 
 
 function MediaNavbar() {
 const  [isMobile,setIsMobile] = useState(false);
+const navigate = useNavigate();
+const userInfo=localStorage.getItem("userInfo")
 
-
+function handleProduct(data){
+ 
+ console.log(data);
+ navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
+}
+ function handleLogin(event){
+   navigate('/Login');
+ }
   return (
     
     <div className='MediaNavbar'>
@@ -18,7 +27,14 @@ const  [isMobile,setIsMobile] = useState(false);
 
 
   <div style={{display:'flex',justifyContent:'space-between',width:'100%',padding:'5px'}}>
-    <div style={{justifyContent:'left',paddingLeft:'7px'}}><img src={logo} alt="" /></div>
+    <div style={{justifyContent:'left',paddingLeft:'7px'}}>
+
+    <>
+   <img onClick={()=>{
+    navigate("/")
+   }} src={posslogogif } style={{width:"90px",height:'80px'}} alt="" />
+    </>
+    </div>
     <div align='center' style={{justifyContent:'center'}}>
     <form  className='search-container' >
      
@@ -63,47 +79,81 @@ const  [isMobile,setIsMobile] = useState(false);
   </button>
   <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
     <li role="presentation" id='listmo' >
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1}  onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >
       Food
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+       onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"TREAT"
+        })
+      }} >
       Treats
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+       onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"TOY"
+        })
+      }} >
       Toys
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+      
+      onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"APPARELS"
+        })
+      }} >
       Apparels
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+       onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"ACCESSORIES"
+        })
+      }} >
       Accessories
       </a>
     </li>
+    
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
-      Medicine 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+       onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"MAT"
+        })
+      }} >
       Bed And Mats 
       </a>
     </li>
+   
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
-      Gromming 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href="/">
+      <a role="menuitem" tabIndex={-1} 
+       onClick={()=>{
+        handleProduct({
+          "petCategoryy":"DOG",
+          "typeCatagoryy":"HEALTH & HYGIENE"
+        })
+      }} >
       Health and Hygiene 
       </a>
     </li>
@@ -125,47 +175,75 @@ const  [isMobile,setIsMobile] = useState(false);
   </button>
   <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1}  onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} >
       Food
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"TREAT"
+                })
+              }}>
       Treats
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} 
+      onClick={()=>{
+        handleProduct({
+          "petCategoryy":"CAT",
+          "typeCatagoryy":"TOY"
+        })
+      }}>
       Toys
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"APPARELS"
+                })
+              }}>
       Apparels
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"ACCESSORIES"
+                })
+              }}>
       Accessories
       </a>
     </li>
+   
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Medicine 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"MAT"
+                })
+              }}>
       Bed And Mats 
       </a>
     </li>
+   
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Gromming 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"CAT",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }}>
       Health and Hygiene 
       </a>
     </li>
@@ -190,50 +268,68 @@ const  [isMobile,setIsMobile] = useState(false);
   </button>
   <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
     <li role="presentation" id='listmo' >
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Food
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"RABBIT",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      RABBIT      
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Treats
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"HAMSTER",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      HAMSTER
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Toys
+      <a role="menuitem" tabIndex={-1}onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"GUINEA PIG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      GUINEA PIG
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Apparels
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"BIRD",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      BIRD
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Accessories
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"TURTLE",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      TURTLE
       </a>
     </li>
     <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Medicine 
+      <a role="menuitem" tabIndex={-1} onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"FISH",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}>
+      FISH
       </a>
     </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Bed And Mats 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Gromming 
-      </a>
-    </li>
-    <li role="presentation" id='listmo'>
-      <a role="menuitem" tabIndex={-1} href='/'>
-      Health and Hygiene 
-      </a>
-    </li>
+   
+   
+   
 
 
  
@@ -247,11 +343,25 @@ const  [isMobile,setIsMobile] = useState(false);
         <li style={{ margin: '20px 10px'}}>
         <Link to="/" className='home'>About </Link>
         </li>
+       {userInfo ?<>
+        <li style={{ margin: '20px 10px'}}><Link to="/Account" className='home'>My Account
+          </Link></li>
+          
+       
+        <li onClick={()=>{
+              localStorage.removeItem("userInfo")
+              localStorage.removeItem("userId")
+              navigate("/")
+            }} style={{ margin: '20px 10px'}}><Link to="/signin" className='home'>Logout
+          </Link></li></> :
+       <>
         <li style={{ margin: '20px 10px'}}><Link to="/signin" className='home'>SignUp
           </Link></li>
           <li style={{ margin: '20px 10px'}}><Link to="/login" className='home'>Login
           </Link></li>
-         
+
+         </>
+       }
           
          
   </li>

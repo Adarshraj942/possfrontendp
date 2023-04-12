@@ -59,6 +59,8 @@ const Signin = () => {
         const { data } = await signUp(user);
         console.log(data);
         localStorage.setItem("userInfo", data);
+        console.log(data.user._id);
+        localStorage.setItem("userId", data.user._id);
         resetForm();
         navigate("/");
       } catch (error) {

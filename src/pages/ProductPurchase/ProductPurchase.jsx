@@ -102,15 +102,18 @@ for(var i = 0; i < str_array.length; i++) {
 
     const wishlist=async(data)=>{
         if(userData && userInfo){
-         const ata={
-           productId:data,
-           userId:userData,
-           quantity:1
-         }
+          const ata={
+            productId:data,
+            userId:userData,
+            quantity:1,
+            name:post.name,
+            uploadImages:post.uploadImages,
+            price:post.price
+          }
          const tata= await addToWishlist(ata)
          if(tata){
           swal("Added to Cart")
-          navigate("/cart")
+          navigate("/storeCart")
           
          }
         }else{

@@ -10,9 +10,16 @@ import essentials from '../../assets/essentials.png'
 import DogToys from '../../assets/DogToys.png'
 import treak from '../../assets/treak.png'
 import bed from '../../assets/bed.png'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SuperDeals() {
+  const navigate=useNavigate()
+  function handleProduct(data){
+  
+    console.log(data);
+    navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
+  }
   return (
     <>
     <div >
@@ -24,10 +31,20 @@ export default function SuperDeals() {
         <div className='container20' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={foodv} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }}><img src={foodv} alt="" /></div>
               
               </div>
-              <div id='dealcarrd'  style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
+              <div id='dealcarrd'       onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"FOOD"
+                })
+              }} style={{justifyContent:'right',paddingRight:'30px'}} className='flex-item-left'>
                 
                
               </div>
@@ -39,7 +56,12 @@ export default function SuperDeals() {
             <div className='flex-container20' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={grooming} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"HEALTH & HYGIENE"
+                })
+              }}><img src={grooming} alt="" /></div>
               </div>
            
             </div>
@@ -51,7 +73,12 @@ export default function SuperDeals() {
             <div className='flex-container20' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={essentials} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"WALK ESSENTIALS"
+                })
+              }}><img src={essentials} alt="" /></div>
               </div>
              
             </div>
@@ -65,7 +92,12 @@ export default function SuperDeals() {
             <div className='flex-container20' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={DogToys} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TOY"
+                })
+              }}><img src={DogToys} alt="" /></div>
               </div>
              
             </div>
@@ -77,7 +109,12 @@ export default function SuperDeals() {
             <div className='flex-container20' >
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={bed} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"MAT"
+                })
+              }}><img src={bed} alt="" /></div>
               </div>
            
             </div>
@@ -90,7 +127,12 @@ export default function SuperDeals() {
               
               <div style={{justifyContent:'center'}} className='flex-item-center'>
               
-               <div className='PRoductimg'><img src={treak} alt="" /></div>
+               <div className='PRoductimg'      onClick={()=>{
+                handleProduct({
+                  "petCategoryy":"DOG",
+                  "typeCatagoryy":"TREAT"
+                })
+              }}><img src={treak} alt="" /></div>
               </div>
              
             </div>

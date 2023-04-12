@@ -12,6 +12,14 @@ function AllOrder() {
     const [search,setSearch]=useState("");
     const [filterUsers,setFilteredUsers]=useState([]);
       const userData=localStorage.getItem('userId')
+      const AdminData=localStorage.getItem('AdminId')
+      useEffect(()=>{
+        if(AdminData){
+          navigate("/AllOrder")
+        }else{
+          navigate("/Adminlogin")
+        }
+      })
     const navigate=useNavigate()
       useEffect(() => {
         async function fetchData() {
