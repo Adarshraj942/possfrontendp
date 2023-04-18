@@ -14,9 +14,9 @@ function AnalyticsHome() {
         </div>
         <div className='col-md-6'>
         <div align="center" className='card' id='cardco'>
-        <div><h1 className='orderColor'>Total Orders</h1></div>
+        <div><h1 className='orderColor'>Total Products </h1></div>
         <hr />
-        <div id='collabel'>Order Number</div>
+        <div id='collabel'>Products Number</div>
         </div>
         </div>
        
@@ -24,17 +24,17 @@ function AnalyticsHome() {
       <div className='row'>
         <div className='col-md-6'>
         <div align="center" className='card' id='cardco'>
-            <div><h1 className='orderColor'>Total Orders</h1></div>
+            <div><h1 className='orderColor'>Total Add To Carts</h1></div>
             <hr />
-            <div id='collabel'>Order Number</div>
+            <div id='collabel'>Add To Carts Number</div>
         </div>
             
         </div>
         <div className='col-md-6'>
         <div align="center" className='card' id='cardco'>
-        <div><h1 className='orderColor'>Total Orders</h1></div>
+        <div><h1 className='orderColor'>Total Stock</h1></div>
         <hr />
-        <div id='collabel'>Order Number</div>
+        <div id='collabel'>Stock Number</div>
         </div>
         </div>
        

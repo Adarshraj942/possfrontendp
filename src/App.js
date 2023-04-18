@@ -39,7 +39,8 @@ import Cancellation from './pages/Cancellation/Cancellation';
 import AllOrder from './pages/AllOrder/AllOrder';
 import Invoice from './components/Invoice/Invoice';
 import AdminLogin from './pages/AdminLogin/AdminLogin';
-
+import AdminEdit from './pages/AdminEdit/AdminEdit';
+import AdminProducts from './pages/AdminProducts/AdminProducts';
 
 
 
@@ -51,7 +52,7 @@ function App() {
         <Route exact path = '/ChangePassword' element = { < ChangePassword /> } /> 
         <Route exact path = '/AddressBook' element = { < AddressBook /> } />
         <Route exact path = '/Account' element = { < Account /> } /> 
-        <Route exact path = '/AllCategory' element = { < AllCategory /> }/ > 
+        {/* <Route exact path = '/AllCategory' element = { < AllCategory /> }/ >  */}
         <Route exact path = '/Returns' element = { < Returns /> }/ >
         <Route exact path = '/PurchaseItem' element = { < PurchaseItem /> }/ > 
        
@@ -64,8 +65,9 @@ function App() {
  
        
         <Route  path = '/Contact' element = { < Contact /> } /> 
-        <Route  path = '/ParentCatogry' element = { < ParentCatogry /> } /> 
-        <Route  path = '/AllProducts' element = { < AllProducts /> }/ > 
+        <Route  path = '/AllProducts/edit/:id' element = { < AdminEdit/> } /> 
+        {/* <Route  path = '/AllProducts' element = { < AllProducts /> }/ >  */}
+        <Route path='/AdminProducts' element={<AdminProducts/>}/>
 
         <Route path = '/AddNewAdress'element = { < AddNewAdress /> }/ > 
 
@@ -80,7 +82,7 @@ function App() {
         <Route exact path = "/ProductPage/:id/:type" element = { < ProductPage /> } /> 
         
         <Route exact path = '/ProductPurchase/:id' element = { < ProductPurchase /> } /> 
-        <Route exact path = '/InstantPurchase/:id' element = { < Multistepper /> } />
+        <Route exact path = '/InstantPurchase/:id/:quantity' element = { < Multistepper /> } />
        
          <Route exact path = '/Multistepper/:id' element = { < Multistepper /> } /> 
          <Route exact path = '/ProductPurchase' element = { < ProductPurchase /> } /> 

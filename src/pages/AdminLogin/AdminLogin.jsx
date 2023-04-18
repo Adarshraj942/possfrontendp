@@ -16,6 +16,14 @@ import { Adminlogin } from '../../Api/AdminAuthRequest'
 const AdminLogin = () => {
 
     const AdminInfo = localStorage.getItem("AdminInfo");
+    
+    useEffect(()=>{
+     if(AdminInfo){
+       navigate("/Dashboard")
+     }else{
+        navigate("/Adminlogin")
+     }
+    },[])
     const [user, setData] = useState({
   
         username: "",

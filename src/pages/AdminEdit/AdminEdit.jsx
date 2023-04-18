@@ -1,122 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
-import './AllProducts.css'
+
 import { Footer } from '../../components/Footer/Footer'
-import { addProduct, deleteProduct, getAdminProducts } from '../../Api/ProductRequest'
+import "./AdminEdit.css"
 import swal from 'sweetalert'
-import DataTable from 'react-data-table-component';
-import { useNavigate } from 'react-router-dom'
+import { editProduct, getProduct } from '../../Api/ProductRequest'
+import { useNavigate, useParams } from 'react-router-dom'
 
-function AllProducts() {
-    const[users,setUsers]=useState([]);
-    const [search,setSearch]=useState("");
-    const [filterUsers,setFilteredUsers]=useState([]);
-      const userData=localStorage.getItem('userId')
-      const AdminData=localStorage.getItem('AdminId')
-      const [visibility,setVisiblity]=useState(false)
-      const navigate=useNavigate()
-      useEffect(()=>{
-        if(AdminData){
-          navigate("/AllProducts")
-        }else{
-          navigate("/Adminlogin")
-        }
-    },[])
-
-    useEffect(() => {
-        async function fetchData() {
-          // You can await here
-          // alert()
-          
-          const {data}=await getAdminProducts()
-          console.log(data); 
-          setUsers(data)
-          setFilteredUsers(data)
-       
-          // ...
-        }
-        fetchData();
-      }, []); // Or [] if effect doesn't need props or state
-
-      useEffect(() => {
-        const userInfo = localStorage.getItem("AdminInfo");
-         
-          if (userInfo) {
-         
-            navigate("/AllProducts");
-           
-          } else {
-            navigate("/Adminlogin");
-          }
-        }, []);
-
-        const fn=(data)=>{
-    
-            const images=[]
-            var str_array =data.split(',');
-      
-      for(var i = 0; i < str_array.length; i++) {
-      // Trim the excess whitespace.
-      str_array[i] = str_array[i].replace(/^\s*/, "").replace(/\s*$/, "");
-      // Add additional code here, such as:
-      
-      if(str_array[i]!==""){
-      const url=new URL(str_array[i])  
-      
-      
-      
-      images.push(url.searchParams.get('id'))
-      
-      
-      return `https://drive.google.com/uc?id=${images[0]}`
-      }else{
-        return `https://drive.google.com/uc?id=${"10uk_BvFXN-tHCfAQNYeNDUg4cNaM5SaX"}`
-      }
-      
-      }   
-      ;
-      
-      
-      
-      }
-        const coloumn=[
-            {name:"Image",selector:(row)=><>
-            <img src={fn(row.uploadImages)} style={{width:"80px",height:"80px ",margin:"20px", border: "2px solid #F3CA6D"}}  alt=""  />
-            </>},
-           
-            {name:"Price",selector:(row)=>`₹ ${row.price}`,style: {
-                color: "gray",
-                }},
-                {name:"Product",selector:(row)=>row.name,style: {
-                    color: "gray",
-                    }},
-                    
-            {name:"Status",selector:(row)=>
-            <div style={{display:"flex" }}>
-          
-              {<>
-              <div >
-              <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
-                onClick={  ()=>{navigate(`/AllProducts/edit/${row._id}`)}}
-                >Edit</button>
-                 <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
-                onClick={  ()=>{alert()}}
-                >Add variant</button>
-                  <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
-                onClick={  ()=>{ handledelete(row._id)}}
-                >Delete</button>
-               </div>
-              </>}
-                      
-                     
-                 </div>
-               
-                },
-    
-               
-                      
-          ]  
+const AdminEdit = () => {
+   const [images,setimages]=useState([])
     const [product, setProduct] =useState({
         name:"",
     
@@ -140,7 +33,61 @@ function AllProducts() {
         
     
       });
+      const params=useParams()
+    //   const fn=(data)=>{
+      
+    // setimages(str_array)
+    // console.log(images);
+      
+    //   }
+      useEffect(() => {
+        async function fetchData() {
+          // You can await here
+          const {data}= await getProduct(params.id)
+     
+        
+            
+
+          console.log(data);
+          var str_array =data.uploadImages.split(',');
+          
+         setProduct({
+            name:data.name,
     
+        desc: data.desc,
+    
+        maxPrice: data.maxPrice,
+        price:data.price,
+        quantity:data.quantity,
+        skuId:data.skuId,
+        variantType:data.variantType,
+        brandCategory:data.brandCategory,
+        petCategory:data.petCategory,
+        typeCatagory:data.typeCatagory,
+        
+        ageCategory:data.ageCategory,
+        coverImage:data.coverImage,
+        _id:data._id,
+        image1:str_array[0],
+        image2:str_array[1],
+        image3:str_array[2],
+        image4:str_array[3],
+         })
+          // 
+          
+       
+        
+       
+
+
+        }
+        fetchData();
+        
+         
+      }, []);
+
+     
+      const navigate=useNavigate()
       const handleChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value });
       };
@@ -164,18 +111,20 @@ function AllProducts() {
             ageCategory:product.ageCategory,
             coverImage:product.coverImage,
             uploadImages:`${product.image1},${product.image2},${product.image3},${product.image4}`
+            ,_id:product._id
         }
-        const {data}=await addProduct(ata)
+        const {data}=await editProduct(ata)
         console.log("data",data);
         if(data){
             swal("Product  added successfully!")
+            navigate("/AdminProducts")
          resetForm()
 
         }else{
             swal("Error occured!")
         }
      }
-      console.log(product);
+
      
 const resetForm=()=>{
     setProduct({
@@ -201,13 +150,6 @@ const resetForm=()=>{
         
     })
 }
-
-const handledelete=async(id)=>{
-    swal("do you want to delete?")
-     const {data}=await deleteProduct(id)
-     console.log(data)
-     swal("do you want to delete?")
-}
   return (
     <>
      <Navbar />
@@ -220,11 +162,9 @@ const handledelete=async(id)=>{
             <div className='col-10'>
                 <div className='container' id='container'>
                     
-                    <h4 className='productlabel' onClick={()=>{
-                       setVisiblity(!visibility)
-                    }}>Add Product</h4>
+                    <h4 className='productlabel'>Edit Product</h4>
                     <hr />
-                   {visibility? <form onSubmit={handSubmit}>
+                    <form onSubmit={handSubmit}>
                         <div>
                             <div className='formlabel'> <label htmlFor="">Title</label> </div>
                             <div><input className='inputbox' type="text"  onChange={handleChange} name='name' value={product.name} /></div>
@@ -433,31 +373,10 @@ const handledelete=async(id)=>{
                         </div>
                         
                        
-                    </form>:""}
+                    </form>
                 </div>
-                <div>
-
-  
-
-
-
-                </div>
-           <div style={{marginTop:'2rem'}}>
-
-           <DataTable 
-        
-        columns={coloumn} 
-      data={filterUsers} 
-        pagination
-        fixedHeader
-        style={{color:"red"}}
-        highlightOnHover
-        subHeader
+          
       
-        subHeaderAlign="center"
-        // data={data}
-      /> 
-           </div>
             </div>
         
         </div>
@@ -467,8 +386,7 @@ const handledelete=async(id)=>{
     <br />
     <Footer />
     </>
-
   )
 }
 
-export default AllProducts
+export default AdminEdit

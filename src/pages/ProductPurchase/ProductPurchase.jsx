@@ -37,7 +37,7 @@ import { addToWishlist } from '../../Api/WishlistRoute'
 
 function ProductPurchase() {
 
- 
+     
     const userData =localStorage.getItem("userId")
     const userInfo =localStorage.getItem("userInfo")
 
@@ -47,10 +47,11 @@ function ProductPurchase() {
     const [post ,setPost]=useState({})
     const params =useParams()
     const value = 3.5;
-    const [category, setCategory] = useState("");
+    const [petCategory, setPCategory] = useState("");
+    const [typeCategory, setTCategory] = useState("");
     const [products, setProduct] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [images,setimages]=useState(["1ADhSsnjla2m9Ru6cb3Kmu6PFsm3NZEKp"])
-
+    const [preview,setPreview]=useState(1)
     const fn=(data)=>{
         var str_array =data.uploadImages.split(',');
 
@@ -74,7 +75,8 @@ for(var i = 0; i < str_array.length; i++) {
           const {data}= await getProduct(params.id)
      
           setPost(data)
-
+          setPCategory(data.petCategory)
+          setTCategory(data.typeCatagory)
           console.log(data.uploadImages
             )
             
@@ -88,7 +90,7 @@ for(var i = 0; i < str_array.length; i++) {
       }, [images,fn]);
       function InstantPurchase(event) {
   
-        navigate(`/InstantPurchase/${post._id}`);
+        navigate(`/InstantPurchase/${post._id}/${quant}`);
       }
      
   
@@ -99,7 +101,7 @@ for(var i = 0; i < str_array.length; i++) {
     //   // api call
       
     // };
-
+const [quant,setQuant]= useState(1)
     const wishlist=async(data)=>{
         if(userData && userInfo){
           const ata={
@@ -174,14 +176,22 @@ for(var i = 0; i < str_array.length; i++) {
                             images.length>0 ?
                             
                             
-                            "https://drive.google.com/uc?id="+ images[1]:"no image"} alt="" />
+                            "https://drive.google.com/uc?id="+ images[preview]:"no image"} alt="" />
                      </div>
                   <div className='ulcard' align='center'>
                   <ul align='center' class="preview-thumbnail nav nav-tabs" >
-                           <li class="active"><a href data-target="#pic-1" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[2]}`} /></div></a></li>
-                           <li><a href data-target="#pic-2" data-toggle="tab"> <div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[3]}`} /></div> </a></li>
-                           <li><a href data-target="#pic-3" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[4]}`} /></div></a></li>
-                           <li className='onelistotem' ><a href data-target="#pic-4" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img src={`https://drive.google.com/uc?id=${images[5]}`} /></div></a></li>
+                           <li class="active"><a href data-target="#pic-1" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img onClick={()=>{
+                            setPreview(1)
+                           }} src={`https://drive.google.com/uc?id=${images[1]}`} /></div></a></li>
+                           <li><a href data-target="#pic-2" data-toggle="tab"> <div className='card' style={{padding:'20px'}}><img onClick={()=>{
+                            setPreview(2)
+                           }}src={`https://drive.google.com/uc?id=${images[2]}`} /></div> </a></li>
+                           <li><a href data-target="#pic-3" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img onClick={()=>{
+                            setPreview(3)
+                           }}src={`https://drive.google.com/uc?id=${images[3]}`} /></div></a></li>
+                           <li className='onelistotem' ><a href data-target="#pic-4" data-toggle="tab"><div className='card' style={{padding:'20px'}}><img onClick={()=>{
+                            setPreview(4)
+                           }} src={`https://drive.google.com/uc?id=${images[4]}`} /></div></a></li>
                          
                  </ul>
                   </div>
@@ -196,9 +206,21 @@ for(var i = 0; i < str_array.length; i++) {
                <h4 align='center' className='pricehead'>₹{post.price}</h4>
                <div align='center' className='wrapbox' >
                <div align='center' className='wrapper' style={{marginTop:'30px',marginBottom:'20px'}}>
-                       <span className='minus'>-</span>
-                       <span className='num'>1</span>
-                       <span className='plus'>+</span>
+                       <span className='minus' onClick={()=>{
+                        if(quant >=2){
+                          const newQua=quant-1
+                          setQuant(newQua)
+                         }else {
+                            setQuant(1)
+                         }
+                       }}>-</span>
+                       <span className='num'>{quant}</span>
+                       <span className='plus' onClick={()=>{
+                       
+                       const newQua=quant+1
+                       setQuant(newQua)
+                     
+                     }} >+</span>
                    </div>
                </div>
                
@@ -282,7 +304,7 @@ for(var i = 0; i < str_array.length; i++) {
      </div>
 
   
-      <ProductCard />
+      <ProductCard petCategory={"CAT"} typeCatagory={"FOOD"}/>
       <Footer />
      <MediaFooter />
     </div>

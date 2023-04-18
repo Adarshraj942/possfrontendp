@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
 
 const AllCategory = () => {
-  return (
+  return ( 
     <>
         <Navbar />
         <div className='container-fluid'>

@@ -6,7 +6,8 @@ import MediaFooter from '../../components/Footer/MediaFooter'
 import './StoreOrder.css'
 import DataTable from 'react-data-table-component';
 import { useNavigate } from 'react-router-dom'
-import { getOrder } from '../../Api/OrderRequest';
+import { cancelOrder, getOrder, returnOrder } from '../../Api/OrderRequest';
+import swal from 'sweetalert'
 function StoreOrder() {
     const[users,setUsers]=useState([]);
     const [search,setSearch]=useState("");
@@ -17,7 +18,7 @@ function StoreOrder() {
     
       const images=[]
       var str_array =data.split(',');
-console.log("str",str_array);
+
 for(var i = 0; i < str_array.length; i++) {
 // Trim the excess whitespace.
 str_array[i] = str_array[i].replace(/^\s*/, "").replace(/\s*$/, "");
@@ -44,23 +45,45 @@ return `https://drive.google.com/uc?id=${images[0]}`
 }
       const userData=localStorage.getItem('userId')
     const navigate=useNavigate()
+    const handleCancelReq=async (dataz)=>{
+
+      const beta={orderID:dataz}
+      const {data}=await cancelOrder(beta)
+      
+      if(data){
+        swal("Order cancelled")
+      }else{
+        swal("Error occured !")
+      }
+     }
+
+     const handlereturnReq=async (dataz)=>{
+
+      const beta={orderID:dataz}
+      const {data}=await returnOrder(beta)
+      
+      if(data){
+        swal("Order cancelled")
+      }else{
+        swal("Error occured !")
+      }
+     }
       useEffect(() => {
         async function fetchData() {
           // You can await here
           // alert()
           const beta={userId:userData}
           const {data}=await getOrder(beta)
-          console.log(data); 
+         
           setUsers(data)
           setFilteredUsers(data.orderlist)
-          console.log(userData);
-          console.log(data.orderlist);
+         
         
         }
 
         fetchData();
 
-      }, []); // Or [] if effect doesn't need props or state
+      }, [handleCancelReq]); // Or [] if effect doesn't need props or state
       useEffect(()=>{
         const result=users.filter((user)=>{
             return user.firstname.toLowerCase().match(search.toLowerCase());
@@ -69,7 +92,7 @@ return `https://drive.google.com/uc?id=${images[0]}`
         setFilteredUsers(result)
       },[search]) 
     
-     
+    
       useEffect(() => {
       const userInfo = localStorage.getItem("userInfo");
        
@@ -90,24 +113,94 @@ return `https://drive.google.com/uc?id=${images[0]}`
                 color: "gray",
                 }},
                 {name:"Price",selector:(row)=>`₹${row.price+100}`,style: {
-                  color: "gray",
+                  color: "gray",marginLeft:"-3rem"
                   }},
                 {name:"PaymentMod",selector:(row)=>row.paymentMod,style: {
-                    color: "gray",
+                    color: "gray",marginLeft:"-3rem"
                     }},
                     {name:"Status",selector:(row)=>row.OrderStatus,style: {
-                      color: "gray",
+                      color: "gray",marginLeft:"-3rem"
                       }},
         {name:"ACTION ",selector:(row)=>
         <div style={{display:"flex" }}>
       
           {<>
-            <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+
+          {row.OrderStatus=="ORDERED"  && 
+          
+          <>
+          <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
             onClick={  ()=>{navigate(`/orderInvoice/${row._id}`)}}
             >Invoice </button>
               <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
-            onClick={  ()=>{navigate(`/Productpurchase/${row.productId}`)}}
-            >Cancel</button>
+            onClick={  ()=>{ handleCancelReq(row._id)}}
+            >Request Cancel</button>
+          
+          </>
+          }
+             { row.OrderStatus=="DISPATCHED" && 
+          
+          <>
+          <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+            onClick={  ()=>{navigate(`/orderInvoice/${row._id}`)}}
+            >Invoice </button>
+              <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+            onClick={  ()=>{ handleCancelReq(row._id)}}
+            >Request Cancel</button>
+          
+          </>
+          }
+
+          {
+            row.OrderStatus=="DELIVERED" &&   <>
+            <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+              onClick={  ()=>{navigate(`/orderInvoice/${row._id}`)}}
+              >Invoice </button>
+                <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+              onClick={  ()=>{ handlereturnReq(row._id)}}
+              >Request Return</button>
+            
+            </>
+        }
+
+{
+  row.OrderStatus=="RETURN" &&   <>
+  <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+    onClick={  ()=>{navigate(`/orderInvoice/${row._id}`)}}
+    >Invoice </button>
+      {/* <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+    onClick={  ()=>{ handlereturnReq(row._id)}}
+    >Request Return</button>
+   */}
+  </>
+          }
+
+{
+  row.OrderStatus=="CANCELRETURN" &&   <>
+   <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+    onClick={  ()=>{ navigate("/ContactUs")}}
+    >Contact us</button>
+  <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+    onClick={  ()=>{swal("Will be removed after 7 days")}}
+    >Remove</button>
+     
+  
+  </>
+          }
+
+          {
+            row.OrderStatus=="CANCELLED" &&   <>
+             <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+              onClick={  ()=>{ navigate("/ContactUs")}}
+              >Contact us</button>
+                <button className='button' style={{background:"red",color:"white",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
+              onClick={  ()=>{ handleCancelReq(row._id)}}
+              >Remove</button>
+               
+            
+            </>
+          }
+            
              
           </>}
                   

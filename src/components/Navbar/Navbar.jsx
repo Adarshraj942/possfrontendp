@@ -6,6 +6,7 @@ import posslogogif from "../../assets/posslogogif.gif"
 import { useNavigate }  from 'react-router-dom';
 import './Navbar.css'
 import swal from 'sweetalert'
+import { searchInput } from '../../Api/ProductRequest'
 
 
 
@@ -18,7 +19,11 @@ function Navbar() {
   }
 
  const userInfo=localStorage.getItem("userInfo")
-
+const handleSearch=()=>{
+  if(userInfo){
+    navigate("/ProductPage/DOG/FOOD")
+  }
+}
  function handleProduct(data){
   
   console.log(data);
@@ -27,6 +32,9 @@ function Navbar() {
   function handleLogin(event){
     navigate('/Login');
   }
+
+
+
   return (
     <div className='desktopnavbar' style={{margin:'10px'}}>
     
@@ -227,8 +235,10 @@ function Navbar() {
             
           </ul>
           <form id='serachbar' className="form-inline my-2 my-lg-0">
-            <input style={{width:'240px',padding:'20px',backgroundColor:'white',fontSize:'15px'}} className="form-control mr-sm-2" type="search" placeholder="Search your query here" aria-label="Search" /><span><button type="submit" style={{backgroundColor:'transparent',borderColor:'transparent'}}><i class="fa fa-search" aria-hidden="true"></i></button></span>
-
+           <div > <input onClick={()=>{
+            handleSearch()
+           }}  style={{width:'240px',padding:'20px',backgroundColor:'white',fontSize:'15px'}} className="form-control mr-sm-2" type="search" placeholder="Search your query here" aria-label="Search" /><span><button type="submit" style={{backgroundColor:'transparent',borderColor:'transparent'}}><i class="fa fa-search" aria-hidden="true"></i></button></span>
+</div>
           </form>
           <ul  className='liskmin'>
           <li   className="nav-item">

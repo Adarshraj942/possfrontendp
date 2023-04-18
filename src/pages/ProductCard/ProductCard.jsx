@@ -11,8 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useNavigate }  from 'react-router-dom';
 
 
-const ProductCard = () => {
-
+const ProductCard = ({typeCatagory,petCategory}) => {
+ 
     const [category, setCategory] = useState("");
     // const [products, setProduct] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   
@@ -39,9 +39,16 @@ const ProductCard = () => {
 
     useEffect(() => {
       async function fetchData() {
+
+        const zata ={
+          petCategoryy:petCategory,
+          typeCatagoryy:typeCatagory
+        }
+
+        console.log("zata",zata);
         // You can await here
-        const {data}=await getAllProducts()
-        setProduct(data)
+        const {data}=await getAllProducts(zata)
+        setProduct(data.splice(0,12))
         console.log(data);
         // ...
       }

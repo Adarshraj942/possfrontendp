@@ -136,7 +136,7 @@ setimages(arrz)
        userId:userData,
        name:post.name,
        uploadImages:post.uploadImages,
-       quantity:1,
+       quantity:params.quantity,
        price:post.price,
        deliveryAddress:{
           firstName:address.firstName,

@@ -101,7 +101,7 @@ return `https://drive.google.com/uc?id=${"10uk_BvFXN-tHCfAQNYeNDUg4cNaM5SaX"}`
         onClick={  ()=>{navigate(`/Productpurchase/${row.product}`)}}
         >View </button>
          <button className='button' style={{background:"#F3CA6D",color:"black",marginLeft:"5px",padding:"10px",borderRadius:"5px",border:"0px"}}
-        onClick={  ()=>{navigate(`/Instantpurchase/${row.product}`)}}
+        onClick={  ()=>{navigate(`/Instantpurchase/${row.product}/1`)}}
         >Buy now</button>
       </>}
               

@@ -1,9 +1,12 @@
 import React ,{useState} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './ProductPage.css'
-
+import user from '../../assets/user.png'
+import shopingcart from '../../assets/shopingcart.png'
+import logo from '../../assets/logo.png'
+import posslogogif from "../../assets/posslogogif.gif"
 import { useEffect } from "react";
-import { getAllProducts } from "../../Api/ProductRequest.js";
+import { getAdminProducts, getAllProducts, getbrandCategory, getpetCategory, gettypeCategory, searchInput } from "../../Api/ProductRequest.js";
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -128,31 +131,356 @@ const wishlist=async(data)=>{
     
  }
 
+const handdleBrand=async(e)=>{
+    const brandCategory=e.target.value
+    console.log("brand",brandCategory);
+    const ata={
+      brandCategory:brandCategory
+    }
+    const {data}=await getbrandCategory(ata)
+    console.log("brand",data);
+    setProduct(data)
+}
 
+
+function handleClick(event) {
+
+  navigate('/Signin');
+}
+
+
+const handleSearch=()=>{
+if(userInfo){
+  navigate("/ProductPage/DOG/FOOD")
+}
+}
+function handleProduct(data){
+
+console.log(data);
+navigate(`/ProductPage/${data.petCategoryy}/${data.typeCatagoryy}`);
+}
+function handleLogin(event){
+  navigate('/Login');
+}
+
+
+
+const handlepetCategory=async(e)=>{
+  console.log(e);
+  const ata={
+    petCategory:e
+  }
+
+  const {data} = await getpetCategory(ata)
+  console.log("pet",data );
+  setProduct(data)
+}
+
+const handlePetSelect=async(e)=>{
+  const ata={
+    petCategory:e.target.value
+  }
+
+  const {data} = await getpetCategory(ata)
+  console.log("pet",data );
+  setProduct(data)
+}
+const handletypeSelect=async(e)=>{
+     const ata={
+       typeCatagory:e.target.value
+     }
+     const {data} = await gettypeCategory(ata)
+     console.log("pet",data );
+     setProduct(data)
+}
+
+const handleSearchInput=async(e)=>{
+  const ata= {search:e.target.value}
+   if(e.target.value!==""){
+    console.log("ata",ata);
+
+    const {data}=await searchInput(ata)
+    console.log(data);
+  
+    setProduct(data)
+   }else{
+    const {data}=await getAdminProducts()
+    setProduct(data)
+   }
+ 
+  
+}
   return (
     <>
     <div>
    < MediaNavbar/>
-      <Navbar />
+{/* navbar starts here */}
+
+<div className='desktopnavbar' style={{margin:'10px'}}>
+    
+    <nav id='navbar' className="navbar navbar-expand-lg navbar-light"  >
+      <a    className="navbar-brand"  >
+  <>
+ <img onClick={()=>{
+  navigate("/")
+ }} src={posslogogif } style={{width:"90px",height:'80px'}} alt="" />
+  </>
+
+      </a>
+ 
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul id='liskmit'  className="navbar-nav mr-auto">
+          <li className="nav-item dropdown">
+            <a   className="nav-link dropdown-toggle" data-toggle="dropdown"  href='/' id="navbarDropdown" role="button"   aria-haspopup="true" aria-expanded="false">
+              Dogs
+            </a>
+            <div className="dropdown-menu"  aria-labelledby="navbarDropdown">
+              <a  className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"FOOD"
+              })
+            }}>Food</a>
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"TREAT"
+              })
+            }} >Treats</a>
+              <a className="dropdown-item"  onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"TOY"
+              })
+            }} >Toys </a>
+             
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"APPARELS"
+              })
+            }}  >Apparels</a>
+              <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"ACCESSORIES"
+              })
+            }}>Accessories</a>
+             
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"MAT"
+              })
+            }}  >Bed And Mats</a>
+          
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"DOG",
+                "typeCatagoryy":"HEALTH & HYGIENE"
+              })
+            }} >Health and Hygiene</a>
+            
+              
+            </div>
+          </li>
+          <li  className="nav-item dropdown">
+            <a href='/' className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Cats
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"FOOD"
+              })
+            }} >Food </a>
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"TREAT"
+              })
+            }} >Treats</a>
+              <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"TOY"
+              })
+            }} >Toys </a>
+              
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"APPARELS"
+              })
+            }} >Apparels</a>
+              <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"ACCESSORIES"
+              })
+            }} >Accessories</a>
+             
+              <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"MAT"
+              })
+            }} >Bed And Mats</a>
+              
+              <a className="dropdown-item"    onClick={()=>{
+              handleProduct({
+                "petCategoryy":"CAT",
+                "typeCatagoryy":"HEALTH & HYGIENE"
+              })
+            }} >Health and Hygiene</a>
+             
+            
+            </div>
+          </li>
+          <li  className="nav-item dropdown">
+            <a   href='/' className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Other Animals
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a className="dropdown-item"     onClick={()=>{
+              handleProduct({
+                "petCategoryy":"BIRD",
+                "typeCatagoryy":"FOOD"
+              })
+            }}>BIRD </a>
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"TURTLE",
+                "typeCatagoryy":"FOOD"
+              })
+            }} >TURTLE</a>
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"FISH",
+                "typeCatagoryy":"FOOD"
+              })
+            }} >FISH </a>
+              
+              <a className="dropdown-item" 
+                onClick={()=>{
+                  handleProduct({
+                    "petCategoryy":"GUINEA PIG",
+                    "typeCatagoryy":"FOOD"
+                  })
+                }}
+              >GUINEA PIG</a>
+              <a className="dropdown-item"   onClick={()=>{
+              handleProduct({
+                "petCategoryy":"HAMSTER",
+                "typeCatagoryy":"FOOD"
+              })
+            }} >HAMSTER</a>
+              <a className="dropdown-item" 
+                onClick={()=>{
+                  handleProduct({
+                    "petCategoryy":"RABBIT",
+                    "typeCatagoryy":"FOOD"
+                  })
+                }}
+              >RABBIT </a>
+             
+             
+            
+            </div>
+          </li>
+          {/* <li   className="nav-item">
+            <a  id="navlinka" className="nav-link active" href="/AboutUS">About US</a>
+          </li> */}
+          <li   className="nav-item">
+            <a  id="navlinka" className="nav-link active" href="/#priceContainer"
+            
+          //   onClick = {(e)=>{
+          //     e.preventDefault();
+          //     window.scrollTo({
+          //     top: document.querySelector("#OurServiceSlider").offsetTop,
+          //     behavior: "smooth",
+          //  });}}
+            >Our Services</a>
+          </li>
+          {/* <li   className="nav-item">
+            <a  id="navlinka" className="nav-link active" href="/ContactUS">Contact US</a>
+          </li> */}
+         
+     
+         
+          
+        </ul>
+        <form id='serachbar' className="form-inline my-2 my-lg-0">
+         <div > <input   onChange={handleSearchInput} style={{width:'240px',padding:'20px',backgroundColor:'white',fontSize:'15px'}} className="form-control mr-sm-2" type="search" placeholder="Search your query here" aria-label="Search" /><span><button type="submit" style={{backgroundColor:'transparent',borderColor:'transparent'}}><i class="fa fa-search" aria-hidden="true"></i></button></span>
+</div>
+        </form>
+        <ul  className='liskmin'>
+        <li   className="nav-item">
+            <a  id="navlinka" className="nav-link active" > <img onClick={()=>{
+              navigate("/storeCart")
+            }} src={shopingcart} style={{width:"20px"}} alt="" /></a>
+          </li>
+         
+          <li  className="nav-item dropdown">
+            <a href='/'  className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src={user} alt="" />
+            </a>
+            <div className="dropdown-menu" style={{marginLeft:'-80px'}} aria-labelledby="navbarDropdown">
+          {userInfo ? <>
+            <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={()=>{
+           
+            navigate("/Account")
+          }}> MY ACCOUNT </button> </a>
+          
+             <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={()=>{
+            swal("Do You Want To Logout")
+            
+            localStorage.removeItem("userInfo")
+            localStorage.removeItem("userId")
+            navigate("/")
+          }}> LOGOUT </button> </a></>
+           : <>
+          <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}} onClick={handleClick}> Sign Up </button> </a>
+              <a  className="dropdown-item" > <button style={{backgroundColor:'transparent',borderColor:'transparent',fontSize:'15px',fontWeight:'650'}}  onClick={handleLogin} >Login</button> </a>
+
+          </>}
+            </div>
+          </li>
+         
+        
+        </ul>
+      </div>
+    </nav>
+  </div>
+{/* navbar ends here */}
   <div className='container-fluid'>
 
   <div className='flexco'>
     <div className='flexit1'>
       <div style={{display:'flex'}}>
-      <div><select className='selectbox' name="" id="">
+      <div><select style={{width:"9rem"}} className='selectbox' onChange={handlePetSelect} id="">
        
-        <option value="">DOG</option>
-         <option value="">CAT</option>
-         <option value=""></option>
+        <option value="DOG">DOG</option>
+         <option value="CAT">CAT</option>
+         <option value="HAMSTER">HAMSTER</option>
+         <option value="RABBIT">RABBIT</option>
+         <option value="FISH">FISH</option>
+         <option value="TURTLE">TURTLE</option>
+         <option value="BIRD">BIRD</option>
+         <option value="GUINEA PIG">GUINEA PIG</option>
         </select></div>
-      <div style={{marginLeft:'10px'}}><select  className='selectbox' name="" id="">
-      <option value="">FOOD </option>
-       <option value="">TOY</option>
-       <option value="">ACCESSORIES</option>
-       <option value="">TREAT</option>
-       <option value="">BEDS & MAT</option>
-       <option value="">APPARELS</option>
-       <option value="">HEALTH & HYGIENE</option>
+      <div style={{marginLeft:'10px',width:"3rem"}}><select style={{width:"12rem"}} onChange={handletypeSelect} className='selectbox' name="" id="">
+      <option value="FOOD">FOOD </option>
+       <option value="TOY">TOY</option>
+       <option value="ACCESSORIES">ACCESSORIES</option>
+       <option value="TREAT">TREAT</option>
+       <option value="MAT">BEDS & MAT</option>
+       <option value="APPARELS">APPARELS</option>
+       <option value="HEALTH & HYGIENE">HEALTH & HYGIENE</option>
 
         </select></div>
       </div>
@@ -160,11 +488,11 @@ const wishlist=async(data)=>{
 
     <div className='flexit2'>
     <div style={{display:'flex'}}>
-      <div style={{marginTop:'10px'}}><h6 >Sort By Price</h6></div>
+      {/* <div style={{marginTop:'10px'}}><h6 >Sort By Price</h6></div>
       <div class='um'><select  className='selectbox' name="" id="">
       <option value="" >MIN TO MAX</option>
       <option value="">MAX TO MIN</option>
-        </select></div>
+        </select></div> */}
       </div>
     </div>
 
@@ -212,29 +540,50 @@ const wishlist=async(data)=>{
 
 <div className="filter-content collapse show" id="collapse_9" >
   <div className="card-body">
-    <form className="pb-3">
-      <div className="input-group">
-        <input type="text" className="form-control" placeholder="Search" />
-        <div className="input-group-append">
-          <button className="btn btn-light" type="button">
-            <i className="fa fa-search" />
-          </button>
-        </div>
-      </div>
-    </form>
+  
     <ul align='left' className="list-menu">
       <li>
-        <a href>Dogs</a>
+        <a onClick={()=>{
+          handlepetCategory("DOG")
+        }}>Dogs</a>
       </li>
       <li>
-        <a href>Cats </a>
+        <a onClick={()=>{
+          handlepetCategory("CAT")
+        }}>Cats </a>
       </li>
       <li>
-        <a href>Small Animals</a>
+        <a onClick={()=>{
+          handlepetCategory("RABBIT")
+        }}>Rabbit</a>
       </li>
       <li>
-        <a href>Grooming</a>
+        <a onClick={()=>{
+          handlepetCategory("TURTLE")
+        }}>Turtle</a>
       </li>
+
+      <li>
+        <a onClick={()=>{
+          handlepetCategory("GUINEA PIG")
+        }}>Guinea Pigs</a>
+      </li>
+      <li>
+        <a onClick={()=>{
+          handlepetCategory("BIRD")
+        }}>Birds</a>
+      </li>
+      <li>
+        <a onClick={()=>{
+          handlepetCategory("FISH")
+        }}>Fish</a>
+      </li>
+      <li>
+        <a onClick={()=>{
+          handlepetCategory("HAMSTER")
+        }}>Hamster</a>
+      </li>
+      
      
     </ul>
   </div>{" "}
@@ -257,16 +606,7 @@ const wishlist=async(data)=>{
         </header>
         <div className="filter-content collapse show" id="collapse_1" >
           <div className="card-body">
-            <form className="pb-3">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search" />
-                <div className="input-group-append">
-                  <button className="btn btn-light" type="button">
-                    <i className="fa fa-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
+           
           
       {/* filter-group  .// */}
       <article className="filter-group">
@@ -285,7 +625,7 @@ const wishlist=async(data)=>{
         </header>
         <div className="filter-content collapse show" id="collapse_2" style={{}}>
           <div className="card-body">
-            <label className="custom-control custom-checkbox">
+            {/* <label className="custom-control custom-checkbox">
               <input
                 type="checkbox"
                 defaultChecked=""
@@ -335,55 +675,122 @@ const wishlist=async(data)=>{
                Farmina
                 <b className="badge badge-pill badge-light float-right">30</b>
               </div>
-            </label>
+            </label> */}
+
+<select  className='inputbox' name='brandCategory' onChange={handdleBrand}  id="">
+                                    <option value="SMARTY PET">SMARTY PET</option>
+                                    <option value="LAL PET">LAL PET</option>
+                                    <option value="DROOLS">DROOLS</option>
+                                    <option value="ACANA">ACANA</option>
+                                    <option value="AQUA DOG">AQUA DOG</option>
+                                    <option value="ARDEN GRANGE">ARDEN GRANGE</option>
+                                    <option value="SAVIC">SAVIC</option>
+                                    <option value="DOGFEST">DOGFEST</option>
+                                    <option value="BARK N BONE">BARK N BONE</option>
+                                    <option value="BARK BUTLER">BARK BUTLER</option>
+                                    <option value="BASIL">BASIL</option>
+                                    <option value="ALL4PETS">ALL4PETS</option>
+                                    <option value="CANOPUS">CANOPUS</option>
+                                    <option value="CATFEST">CATFEST</option>
+                                    <option value="DOG">DOG</option>
+                                    <option value="PAWSH">PAWSH</option>
+                                    <option value="TRUELOVE">TRUELOVE</option>
+                                    <option value="WAGGY ZONE">WAGGY ZONE</option>
+                                    <option value="WHOOF WHOOF">WHOOF WHOOF</option>
+                                    <option value="BEAPHAR">BEAPHAR</option>
+                                    <option value="BEEPS">BEEPS</option>
+                                    <option value="BENNY'S">BENNY'S</option>
+                                    <option value="BIO PET ACTIVE">BIO PET ACTIVE</option>
+                                    <option value="BIOLINE">BIOLINE</option>
+                                    <option value="TRIXIE">TRIXIE</option>
+                                    <option value="BRAVECTO">BRAVECTO</option>
+                                    <option value="FIFOZONE">FIFOZONE</option>
+                                    <option value="CANINE CREEK">CANINE CREEK</option>
+                                    <option value="VIRBAC">VIRBAC</option>
+                                    <option value="SAVAVET">SAVAVET</option>
+                                    <option value="INTERSAND">INTERSAND</option>
+                                    <option value="ODOURLOCK">ODOURLOCK</option>
+                                    <option value="SIMPLE SOLUTION">SIMPLE SOLUTION</option>
+                                    <option value="CATSAN">CATSAN</option>
+                                    <option value="CHAPPI">CHAPPI</option>
+                                    <option value="RENA">RENA</option>
+                                    <option value="CHIP CHOP">CHIP CHOP</option>
+                                    <option value="CHIPSI">CHIPSI</option>
+                                    <option value="CAPTAIN ZACK">CAPTAIN ZACK</option>
+                                    <option value="TEA TREE OIL">TEA TREE OIL</option>
+                                    <option value="DIBAQ">DIBAQ</option>
+                                    <option value="POSS">POSS</option>
+                                    <option value="TRIXIE">TRIXIE</option>
+                                    <option value="BAYER">BAYER</option>
+                                    <option value="BIO GROOM">BIO GROOM</option>
+                                    <option value="FARMINA">FARMINA</option>
+                                    <option value="FIDELE">FIDELE</option>
+                                    <option value="FOODIE PUPPIES">FOODIE PUPPIES</option>
+                                    <option value="PETFROLICS">PETFROLICS</option>
+                                    <option value="FIRST BARK">FIRST BARK</option>
+                                    <option value="FIRST MEOW">FIRST MEOW</option>
+                                    <option value="FONDAPET">FONDAPET</option>
+                                    <option value="VENKY'S">VENKY'S</option>
+                                    <option value="TROPICLEAN">TROPICLEAN</option>
+                                    <option value="OUTWARD HOUND">OUTWARD HOUND</option>
+                                    <option value="GNAWLERS">GNAWLERS</option>
+                                    <option value="gnawlers puppy snack strip123">gnawlers puppy snack strip123</option>
+                                    <option value="GOODIES">GOODIES</option>
+                                    <option value="H.P.">H.P.</option>
+                                    <option value="HELLO PET">HELLO PET</option>
+                                    <option value="HAPPY DOG">HAPPY DOG</option>
+                                    <option value="HELLOFEED">HELLOFEED</option>
+                                    <option value="HIMALAYA">HIMALAYA</option>
+                                    <option value="PETSTAGES">PETSTAGES</option>
+                                    <option value="IAMS">IAMS</option>
+                                    <option value="iams pug123">iams pug123</option>
+                                    <option value="FREEDOM">FREEDOM</option>
+                                    <option value="JERHIGH">JERHIGH</option>
+                                    <option value="KILTIX">KILTIX</option>
+                                    <option value="KISKIN">KISKIN</option>
+                                    <option value="KENNEL KITCHEN">KENNEL KITCHEN</option>
+                                    <option value="BIO-GROOM">BIO-GROOM</option>
+                                    <option value="KRYPTO">KRYPTO</option>
+                                    <option value="ME-O">ME-O</option>
+                                    <option value="MY BEAU">MY BEAU</option>
+                                    <option value="FARMINA">FARMINA</option>
+                                    <option value="PET CARE">PET CARE</option>
+                                    <option value="VETOQUINOL">VETOQUINOL</option>
+                                    <option value="PETKIN">PETKIN</option>
+                                    <option value="ORIJEN">ORIJEN</option>
+                                    <option value="OUT PETCARE">OUT PETCARE</option>
+                                    <option value="PEDIGREE">PEDIGREE</option>
+                                    <option value="DOG LOVERS">DOG LOVERS</option>
+                                    <option value="INTAS">INTAS</option>
+                                    <option value="PURINA">PURINA</option>
+                                    <option value="HOLY PAWS">HOLY PAWS</option>
+                                    <option value="ROYAL CANIN">ROYAL CANIN</option>
+                                    <option value="RUFFWEAR">RUFFWEAR</option>
+                                    <option value="SCOOBEE">SCOOBEE</option>
+                                    <option value="SHEBA">SHEBA</option>
+                                    <option value="SIMPARICA">SIMPARICA</option>
+                                    <option value="SMARTHEART">SMARTHEART</option>
+                                    <option value="SKY EC">SKY EC</option>
+                                    <option value="TAIYO">TAIYO</option>
+                                    <option value="TASTE OF THE WILD">TASTE OF THE WILD</option>
+                                    <option value="TEMPTATION">TEMPTATION</option>
+                                    <option value="TWISTIX">TWISTIX</option>
+                                    <option value="VITAPOL">VITAPOL</option>
+                                    <option value="WHISKAS">WHISKAS</option>
+                                    <option value="WOREX">WOREX</option>
+                                    <option value="YOUR BUDDY">YOUR BUDDY</option>
+                                    <option value="ZOOMIES">ZOOMIES</option>
+                                    <option value="ZUPREEM">ZUPREEM</option>
+                                    <option value="BARK BONE">BARK BONE</option>
+                                    
+
+                                </select>
           </div>{" "}
           {/* card-body.// */}
         </div>
       </article>{" "}
       {/* filter-group .// */}
-      <article className="filter-group">
-        <header className="card-header" style={{backgroundColor:'transparent'}}>
-          <a
-            href
-            data-toggle="collapse"
-            data-target="#collapse_3"
-            aria-expanded="false"
-            className="anchor"
-          >
-          
-            <h6 className="title"><span>Price range </span> <i className="icon-control fa fa-chevron-down" /></h6>
-           
-          </a>
-        </header>
-        <div className="filter-content collapse show" id="collapse_3" style={{}}>
-          <div className="card-body">
-            <input
-              type="range"
-              className="custom-range"
-              min={0}
-              max={100}
-              name=""
-            />
-            <div className="form-row">
-              <div className="form-group col-md-6">
-                <label>Min</label>
-                <input className="form-control" placeholder="₹ 0" type="number" />
-              </div>
-              <div className="form-group text-right col-md-6">
-                <label>Max</label>
-                <input
-                  className="form-control"
-                  placeholder="₹ 1,0000"
-                  type="number"
-                />
-              </div>
-            </div>{" "}
-            {/* form-row.// */}
-            <button className="btn btn-block btn-primary">Apply</button>
-          </div>
-          {/* card-body.// */}
-        </div>
-      </article>{" "}
+            
       {/* filter-group .// */}
      
      
@@ -426,7 +833,7 @@ const wishlist=async(data)=>{
                     }} ><img style={{backgroundColor:'#FFFFFF',margin:'5px',}} src={ele.uploadImages} alt="" /><span style={{backgroundColor:'#FFFFFF'}}>Add to cart</span></button></div>
                     <div style={{borderRadius:'20px',paddingTop:'10px',paddingBottom:'5px'}} align="center">
                     <button   className='button30' style={{backgroundColor:'#F2C879',color:'black'}} onClick={()=>{
-                      navigate(`/InstantPurchase/${ele._id}`)
+                      navigate(`/InstantPurchase/${ele._id}/1`)
                     }}><span >Buy Now</span></button></div>
                     </div>
                     
