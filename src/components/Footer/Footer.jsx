@@ -1,13 +1,14 @@
 import React from 'react'
 import facebooklink from '../../assets/facebooklink.png'
 import instalink from '../../assets/instalink.png'
-import logo from '../../assets/logo.png'
+
+import poss_two from '../../assets/poss_two.png'
 import './Footer.css'
-import { useNavigate } from 'react-router-dom'
+
 
 
 export const Footer = () => {
-  const navigate=useNavigate()
+  
   return (
  <div className='container-fluid' id='desktop'>
      <div style={{marginTop:'10px',backgrounColor:'#F4F7EE'}}>
@@ -52,8 +53,8 @@ export const Footer = () => {
                 <div className='flexright' style={{justifyContent:'right'}}>
                 <div className="form-outline form-white mb-4" >
                       
-                      <div style={{marginTop:'50px',marginLeft:'200px',backgroundColor:"white"}} >
-                        <img src={logo} alt="" />
+                      <div style={{marginTop:'20px',marginLeft:'200px'}} >
+                       <div style={{margin:'0px 0px 20px 0px'}}><img style={{width:'70px',height:'70px'}} src={poss_two} alt="" /></div> 
                         <div><h4 style={{fontWeight:'bold',fontSize:'20px',paddingBottom:'20px',backgroundColor:"white"}}>Follow us</h4></div>
                     <a href='https://www.facebook.com/possbytherollinggroomers' target="_blank">    <img  src={facebooklink}  alt="" /></a> <span style={{margin:'10px'}} >
                       
@@ -73,7 +74,7 @@ export const Footer = () => {
           <div >
           <div className='flexcontent' style={{display:'flex',justifyContent:'space-between'}} >
             <div style={{paddingLeft:'40px'}}  className="md-3" id='flexleft'>  <h4>© 2023 Poss India . All Rights Reserved.</h4></div>
-            <div  style={{paddingRight:'40px'}}   className="md-3" id='flexright'><h4>Developed By <span><a href="vorpstech.com">Vorps Technologies</a></span> </h4></div>
+            <div  style={{paddingRight:'40px'}}   className="md-3" id='flexright'><h4>Developed By <span><a href="http://vorpstech.com/" target="_blank">Vorps Technologies</a></span> </h4></div>
           </div>
             
           </div>

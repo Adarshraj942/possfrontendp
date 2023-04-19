@@ -213,7 +213,7 @@ const handleSearchInput=async(e)=>{
   return (
     <>
     <div>
-   < MediaNavbar/>
+   <MediaNavbar/>
 {/* navbar starts here */}
 
 <div className='desktopnavbar' style={{margin:'10px'}}>
@@ -462,7 +462,7 @@ const handleSearchInput=async(e)=>{
   <div className='flexco'>
     <div className='flexit1'>
       <div style={{display:'flex'}}>
-      <div><select style={{width:"9rem"}} className='selectbox' onChange={handlePetSelect} id="">
+      <div><select  className='selectbox' onChange={handlePetSelect} id="">
        
         <option value="DOG">DOG</option>
          <option value="CAT">CAT</option>
@@ -473,7 +473,7 @@ const handleSearchInput=async(e)=>{
          <option value="BIRD">BIRD</option>
          <option value="GUINEA PIG">GUINEA PIG</option>
         </select></div>
-      <div style={{marginLeft:'10px',width:"3rem"}}><select style={{width:"12rem"}} onChange={handletypeSelect} className='selectbox' name="" id="">
+      <div style={{marginLeft:'10px',width:"3rem"}}><select  onChange={handletypeSelect} className='selectbox' name="" id="">
       <option value="FOOD">FOOD </option>
        <option value="TOY">TOY</option>
        <option value="ACCESSORIES">ACCESSORIES</option>

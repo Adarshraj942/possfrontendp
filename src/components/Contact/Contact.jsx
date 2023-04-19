@@ -87,17 +87,19 @@ const navigate=useNavigate()
   <div className="container" id='content700' >
         <div className="contact__wrapper shadow-lg mt-n9"   >
           <div className="row no-gutters" id='thim' >
-            <div className="col-lg-2  p-4 order-lg-2"  id='looloo' style={{ backgroundImage: `url(${contactusslide})` }}>
+            <div className="col-lg-4  order-lg-2"  id='looloo'  >
               <h3 className="color--black mb-3">Contact US</h3>
               <h6 className="color--black mb-5">Fill the form our team will get back to you withing 24 hours.</h6>
               <ul className="contact-info__list list-style--none position-relative z-index-101">
-                <li className="mb-4 pl-4">
-                  <span className="position-absolute"><i className="fas fa-envelope" /></span>possindia21@gmail.com
+                <li className="mb-4">
+                
+                  <span className="position-absolute"><i className="fas fa-envelope" /></span>possindia
+                  21@gmail.com
                 </li>
-                <li className="mb-4 pl-4">
+                <li className="mb-4 ">
                   <span className="position-absolute"><i className="fas fa-phone" /></span> +91 99996 95078
                 </li>
-                <li className="mb-4 pl-4">
+                <li className="mb-4 ">
                   <span className="position-absolute"><i className="fas fa-map-marker-alt" /></span> 38A Jacaranda  
                   <br /> Marg DLF Phase 2,
                   <br /> Gurugram (Haryana) 122022

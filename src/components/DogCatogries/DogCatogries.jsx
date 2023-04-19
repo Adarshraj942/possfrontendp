@@ -59,7 +59,7 @@ export default function DogCatogries() {
   <div className='container-fluid' id='dogdog' >
     
   <div  className='dogslider'>
-  <div className='flexl' style={{height:'0px'}}>
+  <div className='flexl' >
       <div className='flexp'><img src={mediafoot} alt="" /></div>
       <div className='flexr'><img src={secmediafoot} alt="" /></div>
     </div>

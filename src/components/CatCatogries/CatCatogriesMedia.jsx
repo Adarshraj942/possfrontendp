@@ -33,7 +33,7 @@ function CatCatogriesMedia() {
   return (
     <div className='Mediacontainer'>
            <div align='center' className='container'>
-           <div  className='catslider'  style={{marginTop:'20px',marginBottom:'40px'}}>
+           <div  className='catslider'  style={{marginTop:'10px',marginBottom:'20px'}}>
    <span >
     <h4 align="center">
     <div  className="dropdownbutton">

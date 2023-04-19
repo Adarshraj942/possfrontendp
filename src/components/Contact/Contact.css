@@ -127,9 +127,15 @@ margin-top:40px;height:700px
 
 #thim{
     display: flex;
+    padding: 20px;
+   
+   
 }
 #looloo{
-    width:50%
+    width:50%;
+    padding: 5px 40px;
+    
+   
 }
 
 @media only screen and (max-width: 600px) {

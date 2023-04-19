@@ -1,6 +1,6 @@
 .selectbox {
   
-    width: 5rem;
+    width: 9rem;
     padding:7px;
     font-size: 1rem;
     background: #FFFFFF;
@@ -251,8 +251,9 @@ padding: 20px;
 }
 
 .flexit1{
-    justify-content: left;
+    justify-content: space-between;
     margin-left: 0px;
+
 }
 
 .flexit2{
@@ -392,7 +393,7 @@ padding: 20px;
 }
 .selectbox {
   
-    width: 3rem;
+    width: 6rem;
     padding:7px;
     font-size: 1rem;
     background: #FFFFFF;

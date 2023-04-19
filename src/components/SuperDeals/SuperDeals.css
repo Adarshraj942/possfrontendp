@@ -30,9 +30,10 @@
 }
 @media only screen and (max-width: 600px) {
     .OurServiceSlider h4 {
-        font-size: 20px;
+        font-size: 25px;
         padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 5px;
+        font-weight: 650;
     }
     .flex-container20 {
         display: inline-flex;

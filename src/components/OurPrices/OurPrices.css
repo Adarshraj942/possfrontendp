@@ -11,6 +11,14 @@
     align-items: center;
 }
 #priceContainer{
+    display: block;
+}
+
+.ticksize{
+    height:30px;
+    width: 30px;
+}
+#priceContainer{
     padding:40px
 }
 .subtextheader {
@@ -39,7 +47,7 @@ ul li h4 {
 
 .listitems {
     text-align: left;
-    height:170px
+    height:200px
 }
 
 .listitems li {
@@ -101,7 +109,9 @@ ul li h4 {
             padding-top: 30px;
             padding-bottom: 10px;
         }
-
+        #priceContainer{
+            display: none;
+        }
         .subtextheader {
             padding-bottom: 2px;
         }
@@ -137,6 +147,17 @@ ul li h4 {
         font-size:15px;text-align:center;background-color:white;font-weight:650;border-color:white;border-radius:12px;padding:5px;outline:transparent;width:80px 
     }
     #priceContainer{
+        display: none;
+    }
+    #priceContainer{
         padding:0px
+    }
+    .Pricesheader h4 {
+        color: rgba(56, 43, 40, 1);
+        font-weight: 700;
+        text-align: center;
+        font-size: 30px;
+        padding-top: 1px;
+        padding-bottom: 10px;
     }
 }

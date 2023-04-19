@@ -1,0 +1,173 @@
+.booknowbtn {
+    width: 150px;
+    background-color: #F3CA6D;
+    border-color: transparent;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    align-items: center;
+}
+
+.ticksize{
+    height:30px;
+    width: 30px;
+}
+#priceContainer{
+    padding:40px
+}
+.subtextheader {
+    padding-bottom: 40px;
+}
+
+ul li h4 {
+    font-size: 15px;
+    color: 'black';
+    font-weight: 500;
+}
+
+.headerbook h2 {
+    color: black;
+    font-weight: 800;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.pricebook h2 {
+    color: black;
+    font-weight: 800;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.listitems {
+    text-align: left;
+    height:200px
+}
+
+.listitems li {
+    padding: 4px;
+    font-size: 15px;
+}
+
+.listitemslast li {
+    padding: 4px;
+    text-align: left;
+}
+#col1{
+    width:200px;
+    padding-top:20px
+}
+.listitemslast {
+    padding: 10px;
+    text-align: left;
+}
+
+#cardPrice {
+    width: 300px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    height: 400px;
+    box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+}
+
+#cardPrice:hover {
+    box-shadow: -103px 30px 100px rgba(0, 0, 0, 0.15);
+    height: 430px;
+    background-color: #E6EBE5;
+}
+
+.Pricesheader h4 {
+    color: rgba(56, 43, 40, 1);
+    font-weight: 700;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.MediaPrice{
+    display: none;
+}
+
+#pricerow{
+    display: flex;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+    #pricerow{
+        display: inline;
+        justify-content: center;
+        }
+        .Pricesheader h4 {
+            color: rgba(56, 43, 40, 1);
+            font-weight: 700;
+            text-align: center;
+            font-size: 30px;
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+       
+
+        .subtextheader {
+            padding-bottom: 2px;
+        }
+
+        .subtextheader h2{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        #col1{
+            width:100%;
+            padding-top:10px
+        }
+        #cardPrice {
+            width: 290px;
+            border-radius: 20px;
+            background-color: #FFFFFF;
+            height: auto;
+            box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+        }
+        .listitems {
+            text-align: left;
+            height:auto;
+        }
+        .MediaPrice{
+            display: block;
+        }
+        
+  }
+
+  @media(max-width: 320px){ 
+    #cardPrice {
+        width: 230px;
+        border-radius: 20px;
+        background-color: #FFFFFF;
+        height: 400px;
+        box-shadow: 0 2rem 3rem rgba(132, 138, 163, 0.1);
+    }
+    .listitems {
+        text-align: left;
+        height:auto;
+    }
+    .dogheader select{
+        font-size:15px;text-align:center;background-color:white;font-weight:650;border-color:white;border-radius:12px;padding:5px;outline:transparent;width:80px 
+    }
+    #priceContainer{
+        padding:0px
+    }
+    .Pricesheader h4 {
+        color: rgba(56, 43, 40, 1);
+        font-weight: 700;
+        text-align: center;
+        font-size: 30px;
+        padding-top: 1px;
+        padding-bottom: 10px;
+    }
+    .MediaPrice{
+        display: block;
+    }
+}

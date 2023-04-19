@@ -18,7 +18,8 @@ import DogCatogriesMedia from '../components/DogCatogries/DogCatogriesMedia';
 import CatCatogriesMedia from '../components/CatCatogries/CatCatogriesMedia';
 import MediaBrand from '../components/MediaBrand/MediaBrand';
 import MediaDealCard from '../components/MediaDealCard/MediaDealCard';
-import CardCarasouel from '../components/CardCarasouel/CardCarasouel'
+// import CardCarasouel from '../components/CardCarasouel/CardCarasouel'
+import OurPricesMedia from '../components/OurPrices/OurPricesMedia'
 
 
 
@@ -50,6 +51,7 @@ const Home = () => {
     
     <br />
     <OurPrices />
+    <OurPricesMedia />
 
 
     <br />
@@ -57,13 +59,13 @@ const Home = () => {
     <br />
     <WhyUS />
     
-    <CardCarasouel />
+    {/* <CardCarasouel /> */}
  
 
-    <br />
+  
 
     <Brands />
-    < MediaBrand />
+    <MediaBrand />
 
 
     <Contact />

@@ -22,9 +22,10 @@ function WhyUs() {
 
           <div className='divone'>
             <p  style={{backgroundColor:'white',color:'black',fontWeight:'500',fontSize:'18px'}}>
-            From grooming and pampering to helping you buy the best products for your pets, consider Poss as your one-stop destination for all-things-pets. We understand what a pet parent truly wants - to have their pets lead a life brimming with health and happiness - and are passionate about making that possible.
+            From grooming and pampering to helping you buy the best products for your pets, consider Poss as your one-stop destination for all-things-pets.
+             <br /> <br /> We understand what a pet parent truly wants - to have their pets lead a life brimming with health and happiness - and are passionate about making that possible.
 
-As pet parents ourselves, we consider pets as family and are excited about connecting pet parents to the right pet care professionals so that your best buddies can get lifetime access to cuddles, walkies, scritches, playtime, and more!
+ <br /> <br /> As pet parents ourselves, we consider pets as family and are excited about connecting pet parents to the right pet care professionals so that your best buddies can get lifetime access to cuddles, walkies, scritches, playtime, and more!
             </p>
           </div>
        
@@ -44,6 +45,19 @@ As pet parents ourselves, we consider pets as family and are excited about conne
                     " Your browser does not support the video tag."
                 </video> 
                 </div>
+                <div>
+                <video  height="400" controls autoplay >
+                    <source src='Videos/possc.mp4' />
+                    " Your browser does not support the video tag."
+                </video> 
+                </div>
+                <div>
+                <video  height="400" controls autoplay >
+                    <source src='Videos/possn.mp4' />
+                    " Your browser does not support the video tag."
+                </video> 
+                </div>
+
               
             </Carousel>
         {/* <video  height="400" controls style={{width:'650px'}}>
